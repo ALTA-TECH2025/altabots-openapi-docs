@@ -8,6 +8,7 @@ theme:
   - search.suggest
   - content.code.copy
 nav:
+- Home: AltaBots.ai OpenAPI.md
 - API Reference:
   - API Overview: AltaBots.ai OpenAPI.md
   - Account API:

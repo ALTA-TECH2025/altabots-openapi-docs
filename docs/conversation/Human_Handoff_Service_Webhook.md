@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **9.Human Handoff Service - Webhook**
+# **Human Handoff Service - Webhook**
 
 AltaBots.ai currently supports three products or services for human-assisted service: `Intercom`, `LiveChat`, and `Webhook`. When developers choose webhook as the integration method for human-assisted service, they first need to build a Webhook service in their own server environment, providing the following three interfaces to process initialization requests from Agents for human-assisted service and to receive user messages. When developers choose webhook as the method for accessing human handoff services, they first need to build a Webhook receiving service in their own server environment, providing the following three interfaces to receive human handoff services requests initiated by the Agent and to receive messages.
 

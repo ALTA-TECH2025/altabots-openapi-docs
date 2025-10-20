@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **3.Get Conversation Detail**
+# **Get Conversation Detail**
 
 Get all message records within a specified conversation ID.
 

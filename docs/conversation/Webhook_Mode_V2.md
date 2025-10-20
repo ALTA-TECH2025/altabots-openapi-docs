@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **8.Webhook Mode V2**
+# **Webhook Mode V2**
 
 The current AltaBots Agent message response modes support: blocking, streaming, and webhook. When developers use the webhook mode to receive response messages, the message content provided by the Agent or human customer service will be submitted to the specified webhook address.
 

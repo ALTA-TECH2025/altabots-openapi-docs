@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **5.Get Correlated Dataset**
+# **Get Correlated Dataset**
 
 Retrieve the knowledge base data referenced by the Agent's answer.
 

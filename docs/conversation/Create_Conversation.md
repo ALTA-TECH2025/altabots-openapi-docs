@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **1.Create Conversation**
+# **Create Conversation**
 
 Used to request and get a conversation ID. The conversation ID is the basic carrier for users to chat with the Agent. Capabilities like chat history, long-term memory, and short-term memory are all based on the conversation ID.
 

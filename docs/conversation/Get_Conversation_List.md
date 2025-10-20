@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **2.Get Conversation List**
+# **Get Conversation List**
 
 Get the list of all conversation IDs within a specified time range.
 

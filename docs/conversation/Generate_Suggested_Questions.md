@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **4.Generate Suggested Questions**
+# **Generate Suggested Questions**
 
 Based on the agent's response in the conversation, provide the user with several questions that can be used to continue the chat.
 

@@ -9,18 +9,22 @@
       
       
       
+        <link rel="prev" href="Query_Status_of_Adding_Table_Data.html">
       
       
-      <link rel="icon" href="/assets/images/favicon.png">
+        <link rel="next" href="Update_Table_Data.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
     
     
       
-        <title>AltaBots.ai OpenAPI</title>
+        <title>Retrieve Database Records - AltaBots.ai OpenAPI</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.84d31ad4.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
       
       
 
@@ -39,7 +43,7 @@
       
     
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -57,6 +61,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#retrieve-database-records" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -69,7 +78,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="AltaBots.ai OpenAPI" class="md-header__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
+    <a href=".." title="AltaBots.ai OpenAPI" class="md-header__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -89,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Retrieve Database Records
             
           </span>
         </div>
@@ -169,7 +178,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="AltaBots.ai OpenAPI" class="md-nav__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
+    <a href=".." title="AltaBots.ai OpenAPI" class="md-nav__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
@@ -184,8 +193,10 @@
       
   
   
+    
   
   
+  
     
     
     
@@ -196,13 +207,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
         
           
           <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
@@ -218,7 +227,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1">
             <span class="md-nav__icon md-icon"></span>
             API Reference
@@ -232,7 +241,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/AltaBots.ai%20OpenAPI.html" class="md-nav__link">
+      <a href="../AltaBots.ai%20OpenAPI.html" class="md-nav__link">
         
   
   
@@ -297,7 +306,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/account/_Get_Agent_Information_.html" class="md-nav__link">
+      <a href="../account/_Get_Agent_Information_.html" class="md-nav__link">
         
   
   
@@ -370,7 +379,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/analytics/Get_Detailed_Credit_Consumption_.html" class="md-nav__link">
+      <a href="../analytics/Get_Detailed_Credit_Consumption_.html" class="md-nav__link">
         
   
   
@@ -393,7 +402,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/analytics/Get_Total_Credit_Consumption_.html" class="md-nav__link">
+      <a href="../analytics/Get_Total_Credit_Consumption_.html" class="md-nav__link">
         
   
   
@@ -466,7 +475,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Agent_Feedback_Evaluation.html" class="md-nav__link">
+      <a href="../conversation/Agent_Feedback_Evaluation.html" class="md-nav__link">
         
   
   
@@ -489,7 +498,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Agent_Response_Feedback.html" class="md-nav__link">
+      <a href="../conversation/Agent_Response_Feedback.html" class="md-nav__link">
         
   
   
@@ -512,7 +521,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Create_Conversation.html" class="md-nav__link">
+      <a href="../conversation/Create_Conversation.html" class="md-nav__link">
         
   
   
@@ -535,7 +544,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Generate_Suggested_Questions.html" class="md-nav__link">
+      <a href="../conversation/Generate_Suggested_Questions.html" class="md-nav__link">
         
   
   
@@ -558,7 +567,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Get_Conversation_Detail.html" class="md-nav__link">
+      <a href="../conversation/Get_Conversation_Detail.html" class="md-nav__link">
         
   
   
@@ -581,7 +590,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Get_Conversation_List.html" class="md-nav__link">
+      <a href="../conversation/Get_Conversation_List.html" class="md-nav__link">
         
   
   
@@ -604,7 +613,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Get_Correlated_Dataset.html" class="md-nav__link">
+      <a href="../conversation/Get_Correlated_Dataset.html" class="md-nav__link">
         
   
   
@@ -627,7 +636,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Human_Handoff_Service_Webhook.html" class="md-nav__link">
+      <a href="../conversation/Human_Handoff_Service_Webhook.html" class="md-nav__link">
         
   
   
@@ -650,7 +659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Send_Message_V2.html" class="md-nav__link">
+      <a href="../conversation/Send_Message_V2.html" class="md-nav__link">
         
   
   
@@ -673,7 +682,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/conversation/Webhook_Mode_V2.html" class="md-nav__link">
+      <a href="../conversation/Webhook_Mode_V2.html" class="md-nav__link">
         
   
   
@@ -701,6 +710,8 @@
                 
   
   
+    
+  
   
   
     
@@ -710,13 +721,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-          
-        
-        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_5" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_5" checked>
         
           
           <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
@@ -732,7 +741,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_1_5">
             <span class="md-nav__icon md-icon"></span>
             Database API
@@ -746,7 +755,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/database/Add_Table_Data.html" class="md-nav__link">
+      <a href="Add_Table_Data.html" class="md-nav__link">
         
   
   
@@ -769,7 +778,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/database/Create_Database_Table.html" class="md-nav__link">
+      <a href="Create_Database_Table.html" class="md-nav__link">
         
   
   
@@ -792,7 +801,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/database/Delete_Table_Data.html" class="md-nav__link">
+      <a href="Delete_Table_Data.html" class="md-nav__link">
         
   
   
@@ -815,7 +824,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/database/Query_Status_of_Adding_Table_Data.html" class="md-nav__link">
+      <a href="Query_Status_of_Adding_Table_Data.html" class="md-nav__link">
         
   
   
@@ -835,10 +844,32 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/database/Retrieve_Database_Records.html" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Retrieve Database Records
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Retrieve_Database_Records.html" class="md-nav__link md-nav__link--active">
         
   
   
@@ -849,6 +880,161 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Body
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Success Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableinfo-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      tableInfo Attributes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -861,7 +1047,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/database/Update_Table_Data.html" class="md-nav__link">
+      <a href="Update_Table_Data.html" class="md-nav__link">
         
   
   
@@ -934,7 +1120,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/history/Get_Correlated_Document_.html" class="md-nav__link">
+      <a href="../history/Get_Correlated_Document_.html" class="md-nav__link">
         
   
   
@@ -957,7 +1143,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/history/Get_Q_A_List_.html" class="md-nav__link">
+      <a href="../history/Get_Q_A_List_.html" class="md-nav__link">
         
   
   
@@ -1030,7 +1216,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Add_Chunks_Text.html" class="md-nav__link">
+      <a href="../knowledge/Add_Chunks_Text.html" class="md-nav__link">
         
   
   
@@ -1053,7 +1239,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Add_Spreadsheet_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Add_Spreadsheet_Docs.html" class="md-nav__link">
         
   
   
@@ -1076,7 +1262,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Add_Text_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Add_Text_Docs.html" class="md-nav__link">
         
   
   
@@ -1099,7 +1285,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Delete_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Delete_Docs.html" class="md-nav__link">
         
   
   
@@ -1122,7 +1308,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Get_Doc_List.html" class="md-nav__link">
+      <a href="../knowledge/Get_Doc_List.html" class="md-nav__link">
         
   
   
@@ -1145,7 +1331,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Get_Knowledge_Base_List.html" class="md-nav__link">
+      <a href="../knowledge/Get_Knowledge_Base_List.html" class="md-nav__link">
         
   
   
@@ -1168,7 +1354,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Query_Doc_Status.html" class="md-nav__link">
+      <a href="../knowledge/Query_Doc_Status.html" class="md-nav__link">
         
   
   
@@ -1191,7 +1377,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Re-embed_Failed_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Re-embed_Failed_Docs.html" class="md-nav__link">
         
   
   
@@ -1214,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Update_Spreadsheet_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Update_Spreadsheet_Docs.html" class="md-nav__link">
         
   
   
@@ -1237,7 +1423,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Update_Text_Docs.html" class="md-nav__link">
+      <a href="../knowledge/Update_Text_Docs.html" class="md-nav__link">
         
   
   
@@ -1260,7 +1446,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/knowledge/Vector_Similarity_Matching.html" class="md-nav__link">
+      <a href="../knowledge/Vector_Similarity_Matching.html" class="md-nav__link">
         
   
   
@@ -1333,7 +1519,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/speech/Text_to_Audio.html" class="md-nav__link">
+      <a href="../speech/Text_to_Audio.html" class="md-nav__link">
         
   
   
@@ -1356,7 +1542,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/speech/Voice_to_Text.html" class="md-nav__link">
+      <a href="../speech/Voice_to_Text.html" class="md-nav__link">
         
   
   
@@ -1429,7 +1615,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/workflow/Integrate_Workflow.html" class="md-nav__link">
+      <a href="../workflow/Integrate_Workflow.html" class="md-nav__link">
         
   
   
@@ -1477,6 +1663,151 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#request-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#authentication" class="md-nav__link">
+    <span class="md-ellipsis">
+      Authentication
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#request" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Request">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-headers" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Headers
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-body" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Body
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#response-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#success-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Success Response
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Success Response">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#tableinfo-attributes" class="md-nav__link">
+    <span class="md-ellipsis">
+      tableInfo Attributes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#failure-response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Failure Response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#error-codes" class="md-nav__link">
+    <span class="md-ellipsis">
+      Error Codes
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1488,8 +1819,366 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+
+<p><em>Last updated at: 2025-10-20</em></p>
+<h1 id="retrieve-database-records"><strong>Retrieve Database Records</strong></h1>
+<p>This API interface supports sending requests to retrieve paginated record data from a specified data table.</p>
+<h2 id="request-method"><strong>Request Method</strong></h2>
+<p>POST</p>
+<h2 id="request-url"><strong>Request URL</strong></h2>
+<p><code>https://altatech.ai/v1/database/records/page</code></p>
+<h2 id="authentication"><strong>Authentication</strong></h2>
+<p>For details, refer to the authentication method description in API Overview.</p>
+<h2 id="request"><strong>Request</strong></h2>
+<h3 id="request-example"><strong>Request Example</strong></h3>
+<pre><code>curl -X POST https://altatech.ai/v1/database/records/page \ 
+  -H 'Authorization: Bearer your_apikey' \ 
+  -H 'Content-Type: application/json' \ 
+  -d '{
+    &quot;table_id&quot;: &quot;673d7d00ce119a7e9f47d152&quot;
+    &quot;page&quot;: 1,
+    &quot;page_size&quot;: 10,
+    &quot;filter&quot;: {         // Either user-defined filter conditions or keyword must be chosen
+        &quot;id&quot;: &quot;1&quot;,
+        &quot;int&quot;: 100
+    },
+    &quot;keyword&quot;:&quot;keyword&quot;
+    }'
+</code></pre>
+<h3 id="request-headers"><strong>Request Headers</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Authorization</td>
+<td style="text-align: left;">Bearer {token}</td>
+<td style="text-align: left;">Use Authorization: Bearer {token} for authentication. Obtain the token from the API key page.</td>
+</tr>
+<tr>
+<td style="text-align: left;">Content-Type</td>
+<td style="text-align: left;">application/json</td>
+<td style="text-align: left;">Data type, set to application/json.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="request-body"><strong>Request Body</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Required</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">table_id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Table ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;">page</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Page number, starting from 1.</td>
+</tr>
+<tr>
+<td style="text-align: left;">page_size</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Yes</td>
+<td style="text-align: left;">Number of records per page, range 1-100.</td>
+</tr>
+<tr>
+<td style="text-align: left;">filter</td>
+<td style="text-align: left;">map</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">User-defined filter conditions (e.g., custom unique primary key).</td>
+</tr>
+<tr>
+<td style="text-align: left;">keyword</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">No</td>
+<td style="text-align: left;">Keyword, supports fuzzy search.</td>
+</tr>
+</tbody>
+</table>
+<h2 id="response"><strong>Response</strong></h2>
+<h3 id="response-example"><strong>Response Example</strong></h3>
+<pre><code>{
+    &quot;code&quot;: 0,
+    &quot;message&quot;: &quot;OK&quot;,
+    &quot;data&quot;: {
+        &quot;table_info&quot;: {
+            &quot;id&quot;: &quot;673e9c7a9f7bc178002dbce8&quot;,
+            &quot;name&quot;: &quot;test_api&quot;,
+            &quot;description&quot;: &quot;Test all database APIs&quot;,
+            &quot;field_count&quot;: 5,
+            &quot;fields&quot;: [
+                {
+                    &quot;name&quot;: &quot;id&quot;,
+                    &quot;description&quot;: &quot;id&quot;,
+                    &quot;type&quot;: &quot;TEXT&quot;,
+                    &quot;required&quot;: true,
+                    &quot;unique&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;boolean&quot;,
+                    &quot;description&quot;: &quot;boolean&quot;,
+                    &quot;type&quot;: &quot;BOOLEAN&quot;,
+                    &quot;required&quot;: true,
+                    &quot;unique&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;int&quot;,
+                    &quot;description&quot;: &quot;int&quot;,
+                    &quot;type&quot;: &quot;INT&quot;,
+                    &quot;required&quot;: true,
+                    &quot;unique&quot;: true
+                },
+                {
+                    &quot;name&quot;: &quot;datetime&quot;,
+                    &quot;description&quot;: &quot;datetime&quot;,
+                    &quot;type&quot;: &quot;DATETIME&quot;,
+                    &quot;required&quot;: true,
+                    &quot;unique&quot;: false
+                },
+                {
+                    &quot;name&quot;: &quot;float&quot;,
+                    &quot;description&quot;: &quot;float&quot;,
+                    &quot;type&quot;: &quot;FLOAT&quot;,
+                    &quot;required&quot;: false,
+                    &quot;unique&quot;: false
+                }
+            ],
+            &quot;bot_id&quot;: &quot;673e93aca7c4223becf6caf0&quot;,
+            &quot;project_id&quot;: &quot;665465e2b5c78e6c7ab92d2b&quot;,
+            &quot;owner_id&quot;: &quot;665465e2b5c78e6c7ab92d28&quot;
+        },
+        &quot;records&quot;: [
+            {
+                &quot;id&quot;: &quot;541278230707963208&quot;,
+                &quot;value&quot;: {
+                    &quot;id&quot;: &quot;1&quot;,
+                    &quot;boolean&quot;: true,
+                    &quot;int&quot;: 1,
+                    &quot;datetime&quot;: &quot;2029-10-01 12:00:00&quot;,
+                    &quot;float&quot;: 2024.21
+                },
+                &quot;created_at&quot;: 1732156566000,
+                &quot;updated_at&quot;: 1732156607000
+            }
+        ],
+        &quot;total_count&quot;: 2
+    }
+}
+</code></pre>
+<h3 id="success-response"><strong>Success Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Message type code.</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Message description.</td>
+</tr>
+<tr>
+<td style="text-align: left;">total_count</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Total record count.</td>
+</tr>
+<tr>
+<td style="text-align: left;">records</td>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">Array of data records.</td>
+</tr>
+<tr>
+<td style="text-align: left;">records[].id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Data ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;">records[].value</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">Data values.</td>
+</tr>
+<tr>
+<td style="text-align: left;">records[].created_at</td>
+<td style="text-align: left;">long</td>
+<td style="text-align: left;">Creation time.</td>
+</tr>
+<tr>
+<td style="text-align: left;">records[].updated_at</td>
+<td style="text-align: left;">long</td>
+<td style="text-align: left;">Update time.</td>
+</tr>
+<tr>
+<td style="text-align: left;">table_info</td>
+<td style="text-align: left;">object</td>
+<td style="text-align: left;">Information about the data table, including the following attributes:</td>
+</tr>
+</tbody>
+</table>
+<h4 id="tableinfo-attributes"><strong>tableInfo Attributes</strong></h4>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Unique identifier of the data table.</td>
+</tr>
+<tr>
+<td style="text-align: left;">name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Data table name.</td>
+</tr>
+<tr>
+<td style="text-align: left;">description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Data table description.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fieldCount</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Number of fields.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields</td>
+<td style="text-align: left;">array</td>
+<td style="text-align: left;">Array of fields, including detailed information for each field.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields[].name</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Field name.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields[].description</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Field description.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields[].type</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Data type, such as TEXT, INT, FLOAT, etc.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields[].required</td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">Whether the field is required.</td>
+</tr>
+<tr>
+<td style="text-align: left;">fields[].unique</td>
+<td style="text-align: left;">boolean</td>
+<td style="text-align: left;">Whether the field is unique.</td>
+</tr>
+<tr>
+<td style="text-align: left;">bot_id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Agent ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;">project_id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Project ID.</td>
+</tr>
+<tr>
+<td style="text-align: left;">owner_id</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Owner ID of the data table.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="failure-response"><strong>Failure Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Field</th>
+<th style="text-align: left;">Type</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">code</td>
+<td style="text-align: left;">int</td>
+<td style="text-align: left;">Error code.</td>
+</tr>
+<tr>
+<td style="text-align: left;">message</td>
+<td style="text-align: left;">string</td>
+<td style="text-align: left;">Error details.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="error-codes"><strong>Error Codes</strong></h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Code</th>
+<th style="text-align: left;">Message</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">40000</td>
+<td style="text-align: left;">Parameter error</td>
+</tr>
+<tr>
+<td style="text-align: left;">50000</td>
+<td style="text-align: left;">Internal system error</td>
+</tr>
+<tr>
+<td style="text-align: left;">403106</td>
+<td style="text-align: left;">Table not found</td>
+</tr>
+<tr>
+<td style="text-align: left;">403131</td>
+<td style="text-align: left;">No access to the data table</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -1531,10 +2220,10 @@
     
     
       
-      <script id="__config" type="application/json">{"base": "/", "features": ["navigation.expand", "navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "/assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.f55a23d4.min.js"></script>
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
       
     
   </body>

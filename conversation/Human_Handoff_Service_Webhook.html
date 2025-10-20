@@ -1,0 +1,2479 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="Get_Correlated_Dataset.html">
+      
+      
+        <link rel="next" href="Send_Message_V2.html">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.6.22">
+    
+    
+      
+        <title>Human Handoff Service Webhook - AltaBots.ai OpenAPI</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.84d31ad4.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    <body dir="ltr">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#human-handoff-service-webhook" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AltaBots.ai OpenAPI" class="md-header__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AltaBots.ai OpenAPI
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Human Handoff Service Webhook
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AltaBots.ai OpenAPI" class="md-nav__button md-logo" aria-label="AltaBots.ai OpenAPI" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    AltaBots.ai OpenAPI
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1" id="__nav_1_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    API Reference
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_1_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1">
+            <span class="md-nav__icon md-icon"></span>
+            API Reference
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../AltaBots.ai%20OpenAPI.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    API Overview
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_2" id="__nav_1_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Account API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            Account API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../account/_Get_Agent_Information_.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Agent Information
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_3" id="__nav_1_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Analytics API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_3">
+            <span class="md-nav__icon md-icon"></span>
+            Analytics API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/Get_Detailed_Credit_Consumption_.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Detailed Credit Consumption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../analytics/Get_Total_Credit_Consumption_.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Total Credit Consumption
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_1_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_1_4" id="__nav_1_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Conversation API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_1_4">
+            <span class="md-nav__icon md-icon"></span>
+            Conversation API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Agent_Feedback_Evaluation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent Feedback Evaluation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Agent_Response_Feedback.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Agent Response Feedback
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Create_Conversation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Conversation
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Generate_Suggested_Questions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Generate Suggested Questions
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Get_Conversation_Detail.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Conversation Detail
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Get_Conversation_List.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Conversation List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Get_Correlated_Dataset.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Correlated Dataset
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    Human Handoff Service Webhook
+    
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="Human_Handoff_Service_Webhook.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    Human Handoff Service Webhook
+    
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-conversation-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Conversation ID
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Conversation ID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chat Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close-conversation-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Close Conversation Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Close Conversation Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receive-customer-service-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receive Customer Service Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive Customer Service Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-customer-service-closes-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Customer Service Closes Conversation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Customer Service Closes Conversation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Send_Message_V2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Send Message V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="Webhook_Mode_V2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Webhook Mode V2
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_5" id="__nav_1_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Database API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_5">
+            <span class="md-nav__icon md-icon"></span>
+            Database API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Add_Table_Data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Table Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Create_Database_Table.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Create Database Table
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Delete_Table_Data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delete Table Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Query_Status_of_Adding_Table_Data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Query Status of Adding Table Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Retrieve_Database_Records.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Retrieve Database Records
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../database/Update_Table_Data.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Update Table Data
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_6" id="__nav_1_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    History API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_6">
+            <span class="md-nav__icon md-icon"></span>
+            History API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/Get_Correlated_Document_.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Correlated Document
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../history/Get_Q_A_List_.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Q A List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_7" id="__nav_1_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Knowledge API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_7">
+            <span class="md-nav__icon md-icon"></span>
+            Knowledge API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Add_Chunks_Text.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Chunks Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Add_Spreadsheet_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Spreadsheet Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Add_Text_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Add Text Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Delete_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Delete Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Get_Doc_List.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Doc List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Get_Knowledge_Base_List.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Get Knowledge Base List
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Query_Doc_Status.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Query Doc Status
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Re-embed_Failed_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Re embed Failed Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Update_Spreadsheet_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Update Spreadsheet Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Update_Text_Docs.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Update Text Docs
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../knowledge/Vector_Similarity_Matching.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Vector Similarity Matching
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_8" id="__nav_1_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Speech API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_8">
+            <span class="md-nav__icon md-icon"></span>
+            Speech API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speech/Text_to_Audio.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Text to Audio
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../speech/Voice_to_Text.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Voice to Text
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_1_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_1_9" id="__nav_1_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    Workflow API
+    
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_1_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_1_9">
+            <span class="md-nav__icon md-icon"></span>
+            Workflow API
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflow/Integrate_Workflow.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    Integrate Workflow
+    
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#create-conversation-id" class="md-nav__link">
+    <span class="md-ellipsis">
+      Create Conversation ID
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Create Conversation ID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-example" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Example
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#chat-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Chat Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Chat Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#close-conversation-interface" class="md-nav__link">
+    <span class="md-ellipsis">
+      Close Conversation Interface
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Close Conversation Interface">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#receive-customer-service-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      Receive Customer Service Messages
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Receive Customer Service Messages">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#manual-customer-service-closes-conversation" class="md-nav__link">
+    <span class="md-ellipsis">
+      Manual Customer Service Closes Conversation
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Manual Customer Service Closes Conversation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#request-method_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Method
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-url_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request URL
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#request-parameters_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      Request Parameters
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#response_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      Response
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<p><em>Last updated at: 2025-10-20</em></p>
+<h1 id="human-handoff-service-webhook"><strong>Human Handoff Service - Webhook</strong></h1>
+<p>AltaBots.ai currently supports three products or services for human-assisted service: <code>Intercom</code>, <code>LiveChat</code>, and <code>Webhook</code>. When developers choose webhook as the integration method for human-assisted service, they first need to build a Webhook service in their own server environment, providing the following three interfaces to process initialization requests from Agents for human-assisted service and to receive user messages. When developers choose webhook as the method for accessing human handoff services, they first need to build a Webhook receiving service in their own server environment, providing the following three interfaces to receive human handoff services requests initiated by the Agent and to receive messages.</p>
+<h2 id="create-conversation-id"><strong>Create Conversation ID</strong></h2>
+<p>Used to create a human handoff services conversation ID for Agent users.</p>
+<h3 id="request-method"><strong>Request Method</strong></h3>
+<p><code>POST</code></p>
+<h3 id="request-url"><strong>Request URL</strong></h3>
+<p><code>https://your_domain/conversation/establish</code></p>
+<h3 id="request-example"><strong>Request Example</strong></h3>
+<pre><code class="language-shell">curl -v -X POST https://YOUR_DOMAIN/human/service/conversation/establish \
+--header &quot;Content-Type: application/json&quot; \
+--data '{
+  &quot;body&quot;: [
+    {
+      &quot;text&quot;: &quot;human service&quot;,
+      &quot;message_type&quot;: &quot;QUESTION&quot;
+    },
+    {
+      &quot;text&quot;: &quot;&quot;,
+      &quot;message_type&quot;: &quot;ANSWER&quot;
+    }
+  ],
+  &quot;timestamp&quot;: 1742265090895,
+  &quot;email&quot;: &quot;bob@gmail.com&quot;,
+  &quot;conversation_id&quot;: &quot;67d8db020fa31d1ef64f53dg&quot;,
+  &quot;bot_id&quot;: &quot;665d88b03ce2b13cf2d573454&quot;,
+  &quot;user_info&quot;: {
+    &quot;phone&quot;: null,
+    &quot;email&quot;: &quot;bob@gmail.com&quot;,
+    &quot;user_id&quot;: &quot;KDslas&quot;,
+    &quot;anonymous_id&quot;: &quot;652face5184b30540a6ea7fe&quot;
+  }
+}'
+</code></pre>
+<p><strong>Request Parameters</strong></p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, needs to be passed through to AltaBots.ai in the customer service reply interface</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>User email, required by some human service systems to provide normal service</td>
+</tr>
+<tr>
+<td>bot_id</td>
+<td>string</td>
+<td>Agent (formerly bot) ID</td>
+</tr>
+<tr>
+<td>body</td>
+<td>list\&lt;Object&gt;</td>
+<td>Message body</td>
+</tr>
+<tr>
+<td>body.message_type</td>
+<td>string</td>
+<td>Message type, QUESTION/ANSWER</td>
+</tr>
+<tr>
+<td>body.text</td>
+<td>string</td>
+<td>Questions and context initiated by the customer for human customer service</td>
+</tr>
+<tr>
+<td>user_info</td>
+<td>object</td>
+<td>User information</td>
+</tr>
+<tr>
+<td>user_info.phone</td>
+<td>string</td>
+<td>User's phone number, currently only available when transferring to human customer service via WhatsApp</td>
+</tr>
+<tr>
+<td>user_info.email</td>
+<td>string</td>
+<td>User's email, available when the user inputs an email</td>
+</tr>
+<tr>
+<td>user_info.user_id</td>
+<td>string</td>
+<td>User ID. A unique user identity identifier customized by enterprise developers, set by developers for a specific anonymous ID</td>
+</tr>
+<tr>
+<td>user_info.anonymous_id</td>
+<td>string</td>
+<td>Anonymous ID. When a user initiates a conversation with the Agent on non-API channel platforms, the system generates an anonymous ID containing the information of the channel platform where the user is located</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response"><strong>Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>Response code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+</tbody>
+</table>
+<h2 id="chat-interface"><strong>Chat Interface</strong></h2>
+<p>Agent users send messages to human handoff services.</p>
+<h3 id="request-method_1"><strong>Request Method</strong></h3>
+<p><code>POST</code></p>
+<h3 id="request-url_1"><strong>Request URL</strong></h3>
+<p><code>https://your_domain/chat</code></p>
+<h3 id="request-parameters"><strong>Request Parameters</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, needs to be propagated to AltaBots.ai in the human handoff services reply interface</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td>body</td>
+<td>string</td>
+<td>Message content</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_1"><strong>Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>Response code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+</tbody>
+</table>
+<h2 id="close-conversation-interface"><strong>Close Conversation Interface</strong></h2>
+<p>When a user conversation times out or the Agent user actively closes the conversation, this interface is called to close the conversation.</p>
+<h3 id="request-method_2"><strong>Request Method</strong></h3>
+<p><code>POST</code></p>
+<h3 id="request-url_2"><strong>Request URL</strong></h3>
+<p><code>https://your_domain/conversation/close</code></p>
+<h3 id="request-parameters_1"><strong>Request Parameters</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, needs to be propagated to AltaBots.ai in the human handoff services reply interface</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+</tr>
+<tr>
+<td>type</td>
+<td>string</td>
+<td>Type of closure, TIMEOUT (timeout) / USER_CLOSED (user-initiated closure)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_2"><strong>Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>Response code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+</tbody>
+</table>
+<p>When developers choose webhook as the method for accessing human services, AltaBots.ai provides an API interface for receiving human handoff services reply messages and conversation control commands sent by developers.</p>
+<h2 id="receive-customer-service-messages"><strong>Receive Customer Service Messages</strong></h2>
+<p>When developers choose webhook as the manual service access method, AltaBots.ai provides an interface for receiving manual customer service reply messages from the Webhook endpoint and sends the message content to the user.</p>
+<h3 id="request-method_3"><strong>Request Method</strong></h3>
+<p><code>POST</code></p>
+<h3 id="request-url_3"><strong>Request URL</strong></h3>
+<p><code>https://altatech.ai/v1/human/message/receive</code> </p>
+<h3 id="request-parameters_2"><strong>Request Parameters</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, propagated in the conversation creation interface and chat interface</td>
+<td>true</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+<td>true</td>
+</tr>
+<tr>
+<td>body</td>
+<td>string</td>
+<td>human handoff services reply content</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_3"><strong>Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>code</td>
+<td>int</td>
+<td>Response code</td>
+</tr>
+<tr>
+<td>message</td>
+<td>string</td>
+<td>Details</td>
+</tr>
+</tbody>
+</table>
+<h2 id="manual-customer-service-closes-conversation"><strong>Manual Customer Service Closes Conversation</strong></h2>
+<p>When developers choose webhook as the manual service access method, the manual customer service provided by AltaBots can actively close the conversation when needed. After closure, the user will no longer receive messages from the customer service unless the user initiates a manual customer service conversation again.</p>
+<h3 id="request-method_4"><strong>Request Method</strong></h3>
+<p><code>POST</code></p>
+<h3 id="request-url_4"><strong>Request URL</strong></h3>
+<p><code>https://altatech.ai/v1/human/close</code> </p>
+<h3 id="request-parameters_3"><strong>Request Parameters</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, needs to be passed through to AltaBots.ai in the human handoff services reply interface</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+</tr>
+</tbody>
+</table>
+<h3 id="response_4"><strong>Response</strong></h3>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+<th>Required</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>conversation_id</td>
+<td>string</td>
+<td>Conversation ID, passed in the conversation creation interface and chat interface, just pass it through</td>
+<td>true</td>
+</tr>
+<tr>
+<td>timestamp</td>
+<td>long</td>
+<td>Timestamp</td>
+<td>true</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      <script id="__config" type="application/json">{"base": "..", "features": ["navigation.expand", "navigation.sections", "navigation.top", "search.suggest", "content.code.copy"], "search": "../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.f55a23d4.min.js"></script>
+      
+    
+  </body>
+</html>

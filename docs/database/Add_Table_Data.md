@@ -32,19 +32,17 @@ curl -X POST https://altatech.ai/v1/database/import/records \
   -H 'Content-Type: application/json' \
   -d '{
     "table_id": "673af861ed69656ac0895b07",
-    "records": [
+      "records": [
         {
-            "values": {
                 "id": "7424489",
                 "name": "4455566777777"
-            }
-        },
+        }, 
         {
-            "values": {
                 "id": "7852549",
                 "name": "446656677665"
-            }
         }
+    ]
+       }
     ]
 }'
 ```

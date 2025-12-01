@@ -8,10 +8,9 @@ theme:
   - search.suggest
   - content.code.copy
 nav:
-- Home: altabots-openapi.md
+- API Overview: altabots-openapi.md
 - Changelog: Changelog.md
 - API Reference:
-  - API Overview: altabots-openapi.md
   - Account API:
     - Get Agent Information: account/_Get_Agent_Information_.md
   - Analytics API:

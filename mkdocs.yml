@@ -8,9 +8,10 @@ theme:
   - search.suggest
   - content.code.copy
 nav:
-- Home: AltaBots.ai OpenAPI.md
+- Home: altabots-openapi.md
+- Changelog: Changelog.md
 - API Reference:
-  - API Overview: AltaBots.ai OpenAPI.md
+  - API Overview: altabots-openapi.md
   - Account API:
     - Get Agent Information: account/_Get_Agent_Information_.md
   - Analytics API:
@@ -49,6 +50,11 @@ nav:
     - Update Spreadsheet Docs: knowledge/Update_Spreadsheet_Docs.md
     - Update Text Docs: knowledge/Update_Text_Docs.md
     - Vector Similarity Matching: knowledge/Vector_Similarity_Matching.md
+  - User API:
+    - User Management: 'users/User Management.md'
+    - Set User ID: 'users/Set UserID.md'
+    - Update User Attributes: 'users/Update UserID.md'
+    - Query User Attributes: 'users/Query User Attributes.md'
   - Speech API:
     - Text to Audio: speech/Text_to_Audio.md
     - Voice to Text: speech/Voice_to_Text.md

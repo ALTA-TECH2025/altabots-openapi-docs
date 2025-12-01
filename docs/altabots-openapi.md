@@ -10,6 +10,7 @@
 | :---- | :---- |
 | 1.0 | 2025/05 |
 | 1.1 | 2025/10 |
+| 1.2 | 2025/12 |
 
 # **API Reference Overview**
 
@@ -22,7 +23,7 @@ The AltaBots API allows you to programmatically interact with your AI agents, ma
 All API requests should be made to:
 
 ```
-https://altatech.ai/v1
+https://altatech.ai/
 ```
 
 ### **Authentication**

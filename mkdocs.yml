@@ -8,7 +8,6 @@ theme:
   - search.suggest
   - content.code.copy
 nav:
-- Home: index.md
 - Changelog: Changelog.md
 - API Overview: altabots-openapi.md
 - API Reference:

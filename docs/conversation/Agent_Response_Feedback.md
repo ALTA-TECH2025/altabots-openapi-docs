@@ -1,6 +1,6 @@
 _Last updated at: 2025-10-20_
 
-# **6.Agent Response Feedback**
+# **Agent Response Feedback**
 
 Feedback on Agent responses to help Agent developers optimize.
 

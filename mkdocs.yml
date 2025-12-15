@@ -58,7 +58,7 @@ nav:
     - Text to Audio: speech/Text_to_Audio.md
     - Voice to Text: speech/Voice_to_Text.md
   - Workflow API:
-    - Integrate Workflow: workflow/Integrate_Workflow.md
+    - Workflow Execution: workflow/Workflow Execution.md
+    - Query Workflow Result: workflow/Query Workflow Result.md   
 use_directory_urls: false
 docs_dir: docs
-

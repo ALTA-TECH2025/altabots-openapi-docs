@@ -20,7 +20,6 @@ Supports developers in setting user IDs through anonymous ID + conversation type
 
 - Bubble Widget Set User ID
 - Iframe Set User ID
-- LiveChat Set User ID
 
 ## **Request Method**
 

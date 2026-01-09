@@ -55,6 +55,7 @@ nav:
     - Set User ID V2: 'users/Set UserID V2.md'
     - Update User Attributes: 'users/Update UserID.md'
     - Query User Attributes: 'users/Query User Attributes.md'
+    - Query User CDP: 'users/Query User CDP.md'
   - Speech API:
     - Text to Audio: speech/Text_to_Audio.md
     - Voice to Text: speech/Voice_to_Text.md

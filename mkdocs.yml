@@ -61,6 +61,7 @@ nav:
     - Voice to Text: speech/Voice_to_Text.md
   - Workflow API:
     - Workflow Execution: workflow/Workflow Execution.md
+    - Workflow ExecutionV2: workflow/Workflow Execution V2.md
     - Query Workflow Result: workflow/Query Workflow Result.md   
 use_directory_urls: false
 docs_dir: docs

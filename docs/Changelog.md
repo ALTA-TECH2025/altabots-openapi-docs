@@ -9,3 +9,7 @@
 - Updated workflow-related APIs, including 'Workflow Execution' and 'Query Workflow Result'
 - Upgraded 'Get Conversation Message Detail' API to a newer version with enhanced response content
 - Enhanced 'Send Message' API to support custom agent behavior via 'custom_variables'
+
+## V1.4· 2026-01-19
+-Added Set UserID V2 API, Workflow Execution V2 ,Query User CDP API
+-Deprecated legacy Set UserID API documentation, replaced by Set UserID V2; legacy Workflow Execution API documentation, replaced by Workflow Execution V2.

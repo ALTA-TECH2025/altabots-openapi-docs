@@ -51,7 +51,6 @@ nav:
     - Vector Similarity Matching: knowledge/Vector_Similarity_Matching.md
   - User API:
     - User Management: 'users/User Management.md'
-    - Set User ID V1: 'users/Set UserID.md'
     - Set User ID V2: 'users/Set UserID V2.md'
     - Update User Attributes: 'users/Update UserID.md'
     - Query User Attributes: 'users/Query User Attributes.md'
@@ -60,7 +59,6 @@ nav:
     - Text to Audio: speech/Text_to_Audio.md
     - Voice to Text: speech/Voice_to_Text.md
   - Workflow API:
-    - Workflow Execution: workflow/Workflow Execution.md
     - Workflow ExecutionV2: workflow/Workflow Execution V2.md
     - Query Workflow Result: workflow/Query Workflow Result.md   
 use_directory_urls: false

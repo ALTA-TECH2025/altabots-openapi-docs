@@ -14,3 +14,6 @@
 - Added Set UserID V2 API, Workflow Execution V2 ,Query User CDP API
 - Deprecated legacy Set UserID API documentation, replaced by Set UserID V2;
 - Deprecatedlegacy Workflow Execution API documentation, replaced by Workflow Execution V2.
+- 
+## V1.5· 2026-03-27
+- Updated Send Message V2 API to provide more structured and detailed agent responses, including referenced knowledge sources and utilized tools.

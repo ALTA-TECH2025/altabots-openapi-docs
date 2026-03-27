@@ -311,7 +311,7 @@ The element in the `citations` array with `index` "1" is the citation source for
 When the Agent is configured with human agent service, use webhook response mode to receive human agent reply messages. After configuring the webhook address in "Integration-API", the altabots system will send both "Agent" and "Human Agent" response messages to the webhook address.
 
 **Webhook configuration:**  
-See [Webhook Mode and Human Agent Service](#).
+See Webhook Mode and Human Agent Service.
 
 ---
 

@@ -62,7 +62,9 @@ nav:
     - Text to Audio: speech/Text_to_Audio.md
     - Voice to Text: speech/Voice_to_Text.md
   - Workflow API:
+    - Get Agent Conversation Credit Consumption List: workflow/Get_Agent_Conversation_Credit_Consumption_List.md
     - Workflow ExecutionV2: workflow/Workflow Execution V2.md
-    - Query Workflow Result: workflow/Query Workflow Result.md   
+    - Query Workflow Result: workflow/Query Workflow Result.md  
+    - Workflow Run Credit Consumption List: workflow/Workflow_Run_Credit_Consumption_List.md
 use_directory_urls: false
 docs_dir: docs

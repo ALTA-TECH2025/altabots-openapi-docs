@@ -39,6 +39,7 @@ nav:
     - Get Q A List: history/Get_Q_A_List_.md
   - Knowledge API:
     - Add Chunks Text: knowledge/Add_Chunks_Text.md
+    - Add QA Slice: knowledge/Add_QA_Slice.md
     - Add QA to Knowledge Document: knowledge/Add_QA_to_Knowledge_Document.md
     - Add Spreadsheet Docs: knowledge/Add_Spreadsheet_Docs.md
     - Add Text Docs: knowledge/Add_Text_Docs.md

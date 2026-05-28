@@ -39,6 +39,7 @@ nav:
     - Get Q A List: history/Get_Q_A_List_.md
   - Knowledge API:
     - Add Chunks Text: knowledge/Add_Chunks_Text.md
+    - Add QA to Knowledge Document: knowledge/Add_QA_to_Knowledge_Document.md
     - Add Spreadsheet Docs: knowledge/Add_Spreadsheet_Docs.md
     - Add Text Docs: knowledge/Add_Text_Docs.md
     - Delete Docs: knowledge/Delete_Docs.md
@@ -46,6 +47,7 @@ nav:
     - Get Knowledge Base List: knowledge/Get_Knowledge_Base_List.md
     - Query Doc Status: knowledge/Query_Doc_Status.md
     - Re embed Failed Docs: knowledge/Re-embed_Failed_Docs.md
+    - Update QA Knowledge Document: knowledge/Update_QA_Knowledge_Document.md
     - Update Spreadsheet Docs: knowledge/Update_Spreadsheet_Docs.md
     - Update Text Docs: knowledge/Update_Text_Docs.md
     - Vector Similarity Matching: knowledge/Vector_Similarity_Matching.md

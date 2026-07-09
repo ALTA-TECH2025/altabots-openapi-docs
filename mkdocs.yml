@@ -12,59 +12,65 @@ nav:
 - API Overview: altabots-openapi.md
 - API Reference:
   - Account API:
-    - Get Agent Information: account/_Get_Agent_Information_.md
-  - Analytics API:
-    - Get Detailed Credit Consumption: analytics/Get_Detailed_Credit_Consumption_.md
-    - Get Total Credit Consumption: analytics/Get_Total_Credit_Consumption_.md
-  - Conversation API:
-    - Agent Feedback Evaluation: conversation/Agent_Feedback_Evaluation.md
-    - Agent Response Feedback: conversation/Agent_Response_Feedback.md
-    - Create Conversation: conversation/Create_Conversation.md
-    - Generate Suggested Questions: conversation/Generate_Suggested_Questions.md
-    - Get Conversation Detail: conversation/Get_Conversation_Detail.md
-    - Get Conversation List: conversation/Get_Conversation_List.md
-    - Get Correlated Dataset: conversation/Get_Correlated_Dataset.md
-    - Human Handoff Service Webhook: conversation/Human_Handoff_Service_Webhook.md
-    - Send Message V2: conversation/Send_Message_V2.md
-    - Webhook Mode V2: conversation/Webhook_Mode_V2.md
-  - Database API:
-    - Add Table Data: database/Add_Table_Data.md
-    - Create Database Table: database/Create_Database_Table.md
-    - Delete Table Data: database/Delete_Table_Data.md
-    - Query Status of Adding Table Data: database/Query_Status_of_Adding_Table_Data.md
-    - Retrieve Database Records: database/Retrieve_Database_Records.md
-    - Update Table Data: database/Update_Table_Data.md
-  - History API:
-    - Get Correlated Document: history/Get_Correlated_Document_.md
-    - Get Q A List: history/Get_Q_A_List_.md
+    - Get Agent Information: account-api/get-bot-information.md
+  - Agent API:
+    - Create Conversation ID: conversation-api/create-conversation.md
+    - Send Message: conversation-api/send-message-v2.md
+    - Webhook receives messages: conversation-api/webhook-receives-messages-v2.md
+    - Get Conversation List: conversation-api/get-conversation-list.md
+    - Human handoff service: conversation-api/human-handoff-service.md
+    - Get Conversation Detail: conversation-api/get-conversation-detail.md
+    - Get Referenced Knowledge: conversation-api/get-correlated-dataset.md
+    - Generate Suggested Questions: conversation-api/suggested-questions.md
+    - Agent Response Feedback: conversation-api/bot-response-feedback.md
+    - Agent Quality: conversation-api/quality.md
+    - Webhook Detection Service: conversation-api/webhook-check-v1.md
+    - Agent Test: conversation-api/agent-test-update-release.md
+    - Query LogTree: conversation-api/query-logtree.md
   - Knowledge API:
-    - Add Chunks Text: knowledge/Add_Chunks_Text.md
-    - Add QA Slice: knowledge/Add_QA_Slice.md
-    - Add QA to Knowledge Document: knowledge/Add_QA_to_Knowledge_Document.md
-    - Add Spreadsheet Docs: knowledge/Add_Spreadsheet_Docs.md
-    - Add Text Docs: knowledge/Add_Text_Docs.md
-    - Delete Docs: knowledge/Delete_Docs.md
-    - Get Doc List: knowledge/Get_Doc_List.md
-    - Get Knowledge Base List: knowledge/Get_Knowledge_Base_List.md
-    - Query Doc Status: knowledge/Query_Doc_Status.md
-    - Re embed Failed Docs: knowledge/Re-embed_Failed_Docs.md
-    - Update QA Knowledge Document: knowledge/Update_QA_Knowledge_Document.md
-    - Update Spreadsheet Docs: knowledge/Update_Spreadsheet_Docs.md
-    - Update Text Docs: knowledge/Update_Text_Docs.md
-    - Vector Similarity Matching: knowledge/Vector_Similarity_Matching.md
-  - User API:
-    - User Management: 'users/User Management.md'
-    - Set User ID V2: 'users/Set UserID V2.md'
-    - Update User Attributes: 'users/Update UserID.md'
-    - Query User Attributes: 'users/Query User Attributes.md'
-    - Query User CDP: 'users/Query User CDP.md'
-  - Speech API:
-    - Text to Audio: speech/Text_to_Audio.md
-    - Voice to Text: speech/Voice_to_Text.md
+    - Create Knowledge Base: knowledge-base-api/create-knowledge-base.md
+    - Get Knowledge Base List: knowledge-base-api/get-knowledge-base-list.md
+    - Add QA to Knowledge Document: knowledge-base-api/add-qa-doc.md
+    - Get Doc List: knowledge-base-api/get-knowledge-doc-list.md
+    - Add Text Docs: knowledge-base-api/add-knowledge-doc.md
+    - Update QA Knowledge Document: knowledge-base-api/update-qa-doc.md
+    - Add QA Chunks: knowledge-base-api/add-qa-chunks.md
+    - Add Spreadsheet Docs: knowledge-base-api/add-knowledge-spreadsheet.md
+    - Update Text Docs: knowledge-base-api/update-knowledge-doc.md
+    - Update Spreadsheet Docs: knowledge-base-api/update-knowledge-spreadsheet.md
+    - Delete Docs: knowledge-base-api/delege-knowledge-doc.md
+    - Add Chunks Text: knowledge-base-api/add-knowledge-text-chunk.md
+    - Query Doc Status: knowledge-base-api/query-doc-status.md
+    - Re embed Failed Docs: knowledge-base-api/re-embed-failed-docs.md
+    - Vector Similarity Matching: knowledge-base-api/vector-similarity-matching.md
   - Workflow API:
-    - Get Agent Conversation Credit Consumption List: workflow/Get_Agent_Conversation_Credit_Consumption_List.md
-    - Workflow ExecutionV2: workflow/Workflow Execution V2.md
-    - Query Workflow Result: workflow/Query Workflow Result.md  
-    - Workflow Run Credit Consumption List: workflow/Workflow_Run_Credit_Consumption_List.md
+    - Run Workflow: workflow-api/workflow-call-api.md
+    - Query Workflow Result: workflow-api/workflow-query-api-result.md
+    - Workflow Test: workflow-api/workflow-test-update-release.md
+  - Database API:
+    - Create Database Table: database-api/create-database-table.md
+    - Add Table Data: database-api/add-table-data.md
+    - Query Status of Adding Table Data: database-api/query-the-status-of-adding-table-data.md
+    - Update Table Data: database-api/update-datebase.md
+    - Retrieve Table Data: database-api/get-table-data.md
+    - Delete Table Data: database-api/delete-datebase.md
+    - List Database Tables: database-api/list-database-tables.md
+  - Models API:
+    - Voice to Text: models-api/voice-to-text.md
+    - Text to Audio: models-api/text-to-audio.md
+  - User API:
+    - User Overview: user-api/user-overview.md
+    - Set User Id: 'user-api/Set-User-Id.md'
+    - Update User Attributes: 'user-api/Update-user-Attributes.md'
+    - Query User Attributes: 'user-api/Query-user-Attributes.md'
+    - Query User CDP: user-api/get-user-cdp.md
+  - Analytics API:
+    - Get Total Credit Consumption: analytics-api/get-credit-consumption.md
+    - Get Detailed Credit Consumption: analytics-api/get-credit-consumption-detail.md
+    - Get Agent Conversation Credit Consumption List: analytics-api/agent-conversation-credits.md
+    - Get Workflow Run Credit Consumption List: analytics-api/workflow-run-credits.md
+  - History API:
+    - Get Correlated Document: history-api/get-correlated-doc.md
+    - Get Q A List: history-api/get-qa-list.md
 use_directory_urls: false
 docs_dir: docs

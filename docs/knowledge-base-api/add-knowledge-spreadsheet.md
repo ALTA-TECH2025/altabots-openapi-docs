@@ -1,0 +1,101 @@
+_Last updated at: 2025-10-20_
+
+# **Add Spreadsheet Docs (file)**
+
+Batch upload tabular files, and sequentially execute chunking/slicing, embedding/vectorization, and storage.  
+Note: The embedding model used is the default model and cannot be defined within the API.  
+Note: Only return the upload results, not the final embedding results. You can obtain the final results through the "Query Document Status" API.
+
+## **Request Method**
+
+`POST`
+
+## **Request URL**
+
+`https://altatech.ai/v1/bot/doc/spreadsheet/add`
+
+## **Request Authentication**
+
+See Overview for authentication details.
+
+## **Request**
+
+### **Request Example**
+
+```bash
+curl --location 'https://altatech.ai/v1/bot/doc/spreadsheet/add' \
+--header 'Authorization: Bearer YOUR_API_KEY' \
+--header 'Content-Type: application/json' \
+--data '{
+    "knowledge_base_id": "67457fea6f658672d6482542",
+    "chunk_token": 700,
+    "header_row": 5,
+    "files": [
+        {
+            "file_url": "https://altatech.ai/doc/spreadsheet_1.xlsx",
+            "file_base64": "SGVsbG8sIEJhc2U2NCBFbmNvZGluZyE=",
+            "source_url": "https://altatech.ai/doc/spreadsheet_1.xlsx",
+            "file_name": "spreadsheet_1.xlsx"
+        }
+    ]
+}'
+```
+
+### **Request Header**
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| Authorization | Bearer {token} | Use `Authorization: Bearer {token}` for authentication. Get the key from the API Keys page as token. |
+| Content-Type | application/json | Data type, set to `application/json`. |
+
+### **Request Body**
+
+| Field Name | Type | Required | Description |
+| ----- | ----- | ----- | ----- |
+| knowledge_base_id | String | No | The target knowledge base to which the document is added. If not filled, it defaults to "Default" knowledge base. |
+| files | Array<Object> | Yes | List of documents to be added. Supports adding up to 20 documents simultaneously. |
+| file_url | String | No | The URL of the document to be added. Supported formats: csv/xls/xlsx. Maximum size per document is 10MB. Note: Either URL or base64 must be provided. If both fields are provided, the system will prioritize file_base64 over file_url. |
+| file_base64 | String | No | The base64 of the document to be added. Supported formats: csv/xls/xlsx. Maximum size per document is 10MB. Note: Either URL or base64 must be provided. If both are provided, base64 takes precedence. |
+| file_name | String | Yes | The name of the document to be added. 1-200 characters. |
+| source_url | String | No | The source URL of the document to be added. Must comply with URL format specifications. |
+| chunk_token | Integer | No | The maximum number of tokens per knowledge chunk when chunking. Default value is 600. Range is 1-1000. |
+| header_row | Integer | No | The maximum number of header rows. Table documents are chunked based on "header + data rows". Default value is 1. Range is 1-5. |
+
+## **Response**
+
+### **Response Example**
+
+```json
+{
+    "doc": [
+        {
+            "doc_id": "xxxxxx",
+            "doc_name": "test_1.csv"
+        },
+        {
+            "doc_id": "xxxxxx",
+            "doc_name": "test_2.xlsx"
+        }
+    ],
+    "failed": [
+        "file_1",
+        "file_2"
+    ]
+}
+```
+
+### **Success Response**
+
+| Field | Type | Description |
+| ----- | ----- | ----- |
+| doc | Array<Object> | List of added documents. |
+| doc_id | String | ID of the added document. |
+| doc_name | String | Name of the added document. |
+| failed | Array<Object> | List of failed added document names. |
+
+### **Failure Response**
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| code | Int | Error code. |
+| message | String | Error details. |

@@ -14,14 +14,29 @@
 | 1.3 | 2025/12 |
 | 1.4 | 2026/01 |
 | 1.5 | 2026/03 |
+| 1.6 | 2026/07 |
 
 # **API Reference Overview**
 
-The AltaBots API allows you to programmatically interact with your AI agents, manage conversations, access knowledge bases, and integrate AltaBots capabilities into your own applications and systems.
+The AltaBots API is designed to comply with HTTP and REST specifications. Query requests use the GET method, while submission requests use the POST method. An error will be returned if a request does not use the appropriate HTTP method.
 
-## **API Basics**
+Unless otherwise specified, parameter values should be encoded in UTF-8 with URL encoding.
 
-### **Base URL**
+## **Authentication**
+
+The AltaBots REST API uses HTTP Bearer Authentication. Add the following `Authorization` header:
+
+```
+Authorization: Bearer ${API_Key}
+```
+
+### **API Activation**
+
+To enable the API service, go to the AltaBots dashboard, navigate to "Agent Integration", select "Development - API Service", and click the "Enable" button to activate the API service.
+
+After enabling the API service, click on the "API" card to enter the API management page. Click the "Create APIKey" button to generate an APIKey that can be used to call AltaBots APIs.
+
+## **API Base URL**
 
 All API requests should be made to:
 
@@ -29,86 +44,47 @@ All API requests should be made to:
 https://altatech.ai/
 ```
 
-### **Authentication**
-
-All API requests require authentication via an API key.
-
-#### **How to Generate an API Key**
-
-* **For Agent-related usage**  
-   Navigate to: `Agent > Integrations > API Key` in your AltaBots dashboard to create an API key specific to the Agent you are working with.
-
-```
-Authorization: Bearer YOUR_API_KEY
-```
-
-### **Request Format**
-
-Most API endpoints accept JSON-encoded request bodies. Make sure to include the following header in your requests:
-
-```
-Content-Type: application/json
-```
-
-### **Response Format**
-
-All responses are returned in JSON format. A typical response structure includes:
-
-```
-{
-  "data": { ... },  // The response data
-  "meta": { ... },  // Metadata about the response
-  "links": { ... }  // Links for pagination or related resources
-}
-```
-
-### **Error Handling**
-
-When an error occurs, the API returns an appropriate HTTP status code and a JSON response with error details:
-
-```
-{
-  "error": {
-    "code": "error_code",
-    "message": "A human-readable error message",
-    "status": 400  // The HTTP status code
-  }
-}
-```
-
-## **Rate Limits**
-
-API rate limits vary by subscription plan:
-
-* Free Tier: 100 requests per day  
-* Professional: 1,000 requests per hour  
-* Enterprise: Custom limits based on contract
-
-Rate limit information is included in the response headers:
-
-* X-RateLimit-Limit: The maximum number of requests allowed in the current period  
-* X-RateLimit-Remaining: The number of requests remaining in the current period  
-* X-RateLimit-Reset: The time when the rate limit will reset (Unix timestamp)
-
 ## **API Categories**
 
-The AltaBots API is organized into several categories:
+The AltaBots platform provides a comprehensive set of API interfaces to meet developers' business needs. Developers can choose suitable APIs based on their requirements. The API categories are as follows:
 
-* Conversation API: Manage conversations with AI agents  
-* Agent API: Create and manage AI agents  
-* Knowledge Base API: Manage knowledge bases and their content  
-* Analytics API: Access usage and performance data  
-* User API: Manage user profiles and attributes  
-* Webhook API: Configure and manage webhooks for events
+| API Category | Description |
+| :---- | :---- |
+| Agent API | Interact and converse with Agents through this API. |
+| Workflow API | Send requests and receive responses from workflows through this API. |
+| Knowledge API | Manage knowledge bases on the AltaBots platform through this API. |
+| Database API | Manage databases on the AltaBots platform through this API. |
+| Models API | Access various model capabilities of the AltaBots platform through this API. |
+| User API | Configure user information, attributes, and contact details through this API. |
+| Analytics API | Query usage data for credits and tokens through this API. |
+| Account API | Retrieve information about Agents, organizations, etc. under the account through this API. |
+
+## **Response Format**
+
+All responses are returned in JSON format. A typical success response includes the fields documented on each endpoint's page. When an error occurs, the API returns an appropriate HTTP status code together with a JSON body containing error details:
+
+```
+{
+  "code": "error_code",
+  "message": "A human-readable error message"
+}
+```
+
+## **API Rate Limits**
+
+The AltaBots platform implements rate limits for API calls, with different limits for different API categories. Exceeding these limits will result in a rate limit exceeded message. The specific limits are:
+
+* **Free Plan**: All API types are limited to 3 requests per minute by default.
+* **Enterprise Custom Plan**: Contact your AltaBots account representative to obtain customized API rate limit privileges.
 
 ## **Getting Started**
 
 To get started with the AltaBots API:
 
-1. Generate an API key in your AltaBots dashboard  
-2. Choose the API endpoints that match your use case  
-3. Make test requests using the provided examples  
-4. Implement error handling in your application  
+1. Enable the API service and generate an API key in your AltaBots dashboard
+2. Choose the API endpoints that match your use case
+3. Make test requests using the provided examples
+4. Implement error handling in your application
 5. Monitor your usage to stay within rate limits
 
-The following sections provide detailed documentation for each API endpoint, including request parameters, response formats, and example code.  
+The following sections provide detailed documentation for each API endpoint, including request parameters, response formats, and example code.

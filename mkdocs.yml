@@ -11,8 +11,6 @@ nav:
 - Changelog: Changelog.md
 - API Overview: altabots-openapi.md
 - API Reference:
-  - Account API:
-    - Get Agent Information: account-api/get-bot-information.md
   - Agent API:
     - Create Conversation ID: conversation-api/create-conversation.md
     - Send Message: conversation-api/send-message-v2.md
@@ -69,6 +67,8 @@ nav:
     - Get Detailed Credit Consumption: analytics-api/get-credit-consumption-detail.md
     - Get Agent Conversation Credit Consumption List: analytics-api/agent-conversation-credits.md
     - Get Workflow Run Credit Consumption List: analytics-api/workflow-run-credits.md
+  - Account API:
+    - Get Agent Information: account-api/get-bot-information.md
   - History API:
     - Get Correlated Document: history-api/get-correlated-doc.md
     - Get Q A List: history-api/get-qa-list.md

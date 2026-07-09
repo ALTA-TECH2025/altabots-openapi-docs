@@ -1,4 +1,4 @@
-_Last updated at: 2026-03-27_
+_Last updated at: 2026-07-06_
 
 ## **Send Message**
 
@@ -95,6 +95,7 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 
 **Notes:**
 - `image`, `audio`, and `document` all support both base64 encoding and URL links; choose one method.
+- The `content` of an `assistant` message must be of type String.
 - Developers can submit only the latest user message. altabots will automatically assemble short-term and long-term memory. If you need to customize short-term memory, refer to the following example:
 
 ```
@@ -146,6 +147,8 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 {
     "create_time": 1679587005,
     "conversation_id": "657303a8a764d47094874bbe",
+    "user_id": "65a4ccfc7ce58e728d5897e0",
+    "anonymous_id": "device_abcdef123456",
     "message_id": "65a4ccfC7ce58e728d5897e0",
     "output": [
         {
@@ -232,6 +235,8 @@ The element in the `citations` array with `index` "1" is the citation source for
 | Field           | Type        | Description                                                                 |
 |-----------------|------------|-----------------------------------------------------------------------------|
 | conversation_id | string     | Yes                                                                         |
+| user_id         | string     | The user ID bound by the developer; null when no user is bound.             |
+| anonymous_id    | string     | Anonymous user (device) ID.                                                 |
 | message_id      | string     | Unique identifier for a message in the conversation.                        |
 | create_time     | long       | Timestamp when the reply message was generated.                             |
 | output          | JSON Array | Agent reply content.                                                        |
@@ -313,6 +318,8 @@ When the Agent is configured with human agent service, use webhook response mode
 **Webhook configuration:**  
 See Webhook Mode and Human Agent Service.
 
+⚠️ In API mode, if human agent takeover is enabled for the Agent, `webhook` response mode must be used to receive human agent reply messages.
+
 ---
 
 ## **Error Response**
@@ -321,6 +328,63 @@ See Webhook Mode and Human Agent Service.
 |---------|--------|------------------|
 | code    | int    | Error code.      |
 | message | string | Error details.   |
+
+### **Error Response Example**
+
+When a request fails, the response may also echo back an `errors` array with details and a `data` object containing whatever partial reply was generated:
+
+```
+{
+  "code": 40000,
+  "message": "Parameter error",
+  "errors": [
+    {
+      "error_code": 40000,
+      "error_message": "Message user role type must have file or content."
+    }
+  ],
+  "data": {
+    "create_time": 1679587005,
+    "conversation_id": "657303a8a764d47094874bbe",
+    "user_id": "65a4ccfc7ce58e728d5897e0",
+    "anonymous_id": "device_abcdef123456",
+    "message_id": "65a4ccfC7ce58e728d5897e0",
+    "output": [
+      {
+        "from_component_branch": "1",
+        "from_component_name": "Component Name",
+        "content": {
+          "text": "Based on the recognizable content, here is the answer...",
+          "audio": null
+        }
+      }
+    ],
+    "usage": {
+      "tokens": {
+        "total_tokens": 29,
+        "prompt_tokens": 19,
+        "prompt_tokens_details": {
+          "audio_tokens": 0,
+          "text_tokens": 0
+        },
+        "completion_tokens": 10,
+        "completion_tokens_details": {
+          "reasoning_tokens": 0,
+          "audio_tokens": 0,
+          "text_tokens": 0
+        }
+      },
+      "credits": {
+        "total_credits": 0,
+        "text_input_credits": 0,
+        "text_output_credits": 0,
+        "audio_input_credits": 0,
+        "audio_output_credits": 0
+      }
+    }
+  }
+}
+```
 
 ### **Error Codes**
 

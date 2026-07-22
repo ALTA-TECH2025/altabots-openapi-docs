@@ -38,6 +38,8 @@ nav:
     - Update Spreadsheet Docs: knowledge-base-api/update-knowledge-spreadsheet.md
     - Delete Docs: knowledge-base-api/delege-knowledge-doc.md
     - Add Chunks Text: knowledge-base-api/add-knowledge-text-chunk.md
+    - Metadata API:
+      - Get Metadata Field List: knowledge-base-api/metadata-api/get-doc-metadata-field-list.md
     - Query Doc Status: knowledge-base-api/query-doc-status.md
     - Re embed Failed Docs: knowledge-base-api/re-embed-failed-docs.md
     - Vector Similarity Matching: knowledge-base-api/vector-similarity-matching.md

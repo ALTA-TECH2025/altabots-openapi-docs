@@ -23,3 +23,6 @@
 - Added `anonymous_id` support to Create Conversation, Get Conversation List, and Webhook receives messages.
 - Updated Vector Similarity Matching with new `group_ids`, `rerank_version`, and `doc_correlation` parameters and a `document_name` response field.
 - Updated Voice to Text endpoint URL and added `user_email`/`user_phone` fields to Query User CDP.
+
+## V1.7 · 2026-07-22
+- Added Get Metadata Field List API (Knowledge API).

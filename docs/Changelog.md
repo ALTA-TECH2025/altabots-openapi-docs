@@ -26,3 +26,4 @@
 
 ## V1.7 · 2026-07-22
 - Added Get Metadata Field List API (Knowledge API).
+- Added Get Doc Metadata, Create Metadata Field, Edit Metadata Field, Delete Metadata Field, and Update Doc Metadata Value APIs (Knowledge API / Metadata API).

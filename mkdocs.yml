@@ -40,6 +40,11 @@ nav:
     - Add Chunks Text: knowledge-base-api/add-knowledge-text-chunk.md
     - Metadata API:
       - Get Metadata Field List: knowledge-base-api/metadata-api/get-doc-metadata-field-list.md
+      - Get Doc Metadata: knowledge-base-api/metadata-api/get-doc-metadata-detail.md
+      - Create Metadata Field: knowledge-base-api/metadata-api/create-doc-metadata-field.md
+      - Edit Metadata Field: knowledge-base-api/metadata-api/update-doc-metadata-field.md
+      - Delete Metadata Field: knowledge-base-api/metadata-api/delete-doc-metadata-field.md
+      - Update Doc Metadata Value: knowledge-base-api/metadata-api/update-doc-metadata.md
     - Query Doc Status: knowledge-base-api/query-doc-status.md
     - Re embed Failed Docs: knowledge-base-api/re-embed-failed-docs.md
     - Vector Similarity Matching: knowledge-base-api/vector-similarity-matching.md

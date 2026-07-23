@@ -1,4 +1,4 @@
-_Last updated at: 2026-07-09_
+_Last updated at: 2026-07-23_
 
 # **Agent Test API (Update / Release)**
 
@@ -70,7 +70,7 @@ The version number is generated automatically by the server (the last segment of
 | Field | Type | Description |
 | :---- | :---- | :---- |
 | botId | string | Target Agent ID. |
-| botType | string | Agent type (QuestionAnswer / Flow / MultiAgent). |
+| botType | string | Agent type (QuestionAnswer / Flow / LoopAgent). |
 | version | string | The version number saved this time (i.e. the current version). |
 
 #### **Failure Response**
@@ -145,10 +145,19 @@ The Update and Release APIs share the same set of error codes:
 | Code | Message |
 | :---- | :---- |
 | 0 | Success |
-| 40348 | Agent does not exist |
+| 20055 | The Agent's API channel is not enabled; enable the API switch under "Integration / API" first |
+| 40000 | Invalid parameter. The Release API was called without `version`; or the imported LoopAgent's Loop Control values are invalid (`maxTurns` must be 1–100, `maxErrors` must be 0–50, `maxBudgetInputTokens` must be ≥ 0, and all must be integers) |
+| 40001 | Too many requests: this API is rate-limited to 30 requests/minute per Agent |
+| 40008 | Too many requests: exceeded the plan's RPM limit for "Other APIs" (not triggered if the plan does not configure this limit) |
+| 40101 | The Authorization request header is empty |
+| 40127 | Developer authentication failed: invalid API Key |
+| 40348 | Agent does not exist. Only occurs if the Agent is deleted concurrently after authentication succeeds; an invalid API Key returns 40127, a deleted Agent returns 40378 |
+| 40353 | This feature requires a plan upgrade to use. Release API: the published count has reached the plan limit |
+| 40355 | The Flow does not meet the rules. Release API: the target is a Flow-Agent and its flowchart is invalid |
+| 40378 | Agent has been deleted |
+| 200268 | Agent/Workflow version number already exists and cannot be duplicated: the server-derived version number conflicts with an existing version (this error code has HTTP status 200) |
 | 403200 | Not in test mode: only Agents in test mode can be updated or released by this API |
 | 403201 | The imported file type does not match the target Agent type |
 | 403202 | Failed to parse the imported .bot file |
 | 403203 | The specified version number does not exist |
 | 403204 | API Key type does not match the API: this API only accepts an Agent Key |
-| 40353 | Published count exceeds the plan limit (SUITE_RESTRICT, Release API) |

@@ -27,3 +27,6 @@
 ## V1.7 · 2026-07-22
 - Added Get Metadata Field List API (Knowledge API).
 - Added Get Doc Metadata, Create Metadata Field, Edit Metadata Field, Delete Metadata Field, and Update Doc Metadata Value APIs (Knowledge API / Metadata API).
+
+## V1.8 · 2026-07-23
+- Updated Agent Test API (Agent API): `botType` now returns `LoopAgent` (replacing `MultiAgent`), and the shared error code list was expanded with new codes (20055, 40000, 40001, 40008, 40101, 40127, 40355, 40378, 200268) including LoopAgent Loop Control validation errors.

@@ -1,4 +1,4 @@
-_Last updated at: 2026-07-06_
+_Last updated at: 2026-07-28_
 
 ## **Send Message**
 
@@ -88,7 +88,9 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
             "var_current_url": "https://altatech.ai/example",
             "var_session_id": "abcdef"
         },
-        "corner_citation": true
+        "corner_citation": true,
+        "thinking": true,
+        "tool_call": true
     }
 }'
 ```
@@ -129,13 +131,27 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 | conversation_id      | string      | Yes      | Unique identifier for the conversation. Must provide the `conversation_id` to continue the conversation.                                                                                                                                                                                                                                                     |
 | response_mode        | string      | Yes      | The response and delivery mode for the AI Agent's reply. <br> `blocking`: Waits for completion before returning results (may be interrupted if the process is long). <br> `streaming`: Returns results in a streaming fashion using SSE (Server-Sent Events). <br> `webhook`: Both Agent and human agent messages are sent to the configured webhook address. |
 | messages             | JSON Array  | Yes      | Conversation message content. Supports two roles: `user` and `assistant` to construct the conversation context. <br> At least one `user` message is required, and the latest `user` message should be last. <br> Developers can construct `assistant` messages as context.                                            |
-| conversation_config  | object      | No       | Allows developers to temporarily adjust the Agent's function scope for special scenarios.                                                                                                                                                                                                                                                                    |
+| conversation_config  | object      | No       | Allows developers to temporarily adjust the Agent's function scope for this conversation only, to meet special requirements. See the full breakdown below.                                                                                                                                                                                                   |
+
+**`conversation_config` fields:**
+
+| Field                                    | Type       | Required | Description                                                                                                                                                                                                                                                                                             |
+|-------------------------------------------|------------|----------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| conversation_config.short_term_memory      | boolean    | No       | Short-term memory switch. Enables or disables short-term memory for this conversation only.                                                                                                                                                                                                              |
+| conversation_config.long_term_memory       | boolean    | No       | Long-term memory switch. Enables or disables long-term memory for this conversation only.                                                                                                                                                                                                                |
+| conversation_config.knowledge              | object     | No       | Knowledge retrieval scope. Customizes the knowledge retrieval range for this conversation only. If both `group_ids` and `data_ids` are provided, retrieval is performed on the union of the referenced knowledge bases. If both are empty arrays, no knowledge is retrieved. If `knowledge` is omitted, the Agent's default knowledge configuration is used. |
+| conversation_config.knowledge.group_ids    | array      | No       | Knowledge base IDs; a knowledge base may contain multiple knowledge documents.                                                                                                                                                                                                                            |
+| conversation_config.knowledge.data_ids     | array      | No       | Knowledge document IDs within a knowledge base.                                                                                                                                                                                                                                                           |
+| conversation_config.custom_variables       | object     | No       | Custom variables. Allows developers to temporarily override the Agent's custom variable values for this conversation only.                                                                                                                                                                               |
+| conversation_config.corner_citation        | boolean    | No       | Enables citation superscript marks (`$[index]$`) in the Agent's reply text for this conversation only. See Citation Mark Format Description below.                                                                                                                                                       |
+| conversation_config.thinking               | boolean    | No       | Controls whether Thinking information (`code: 41`) is returned in streaming responses.                                                                                                                                                                                                                   |
+| conversation_config.tool_call              | boolean    | No       | Controls whether Tool Call information (`code: 5` / `code: 6`) is returned in streaming responses.                                                                                                                                                                                                       |
 
 **Notes:**
 - The Agent input/output configuration page supports different recognition schemes for different message types. Supported file types and sizes may vary. Adjust the API submission data accordingly.
 - Maximum supported formats:
   - Text: string
-  - Audio: .mp3, .wav
+  - Audio: .mp3, .wav, .acc
   - Image: .jpg, .jpeg, .png, .gif, .webp
   - Document: .pdf, .txt, .docx, .csv, .xlsx, .html, .json, .md, .tex, .ts, .xml, etc.
 
@@ -234,7 +250,7 @@ The element in the `citations` array with `index` "1" is the citation source for
 
 | Field           | Type        | Description                                                                 |
 |-----------------|------------|-----------------------------------------------------------------------------|
-| conversation_id | string     | Yes                                                                         |
+| conversation_id | string     | Conversation identifier; pass in `conversation_id` to continue the conversation. |
 | user_id         | string     | The user ID bound by the developer; null when no user is bound.             |
 | anonymous_id    | string     | Anonymous user (device) ID.                                                 |
 | message_id      | string     | Unique identifier for a message in the conversation.                        |

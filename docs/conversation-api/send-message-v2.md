@@ -1,6 +1,6 @@
-_Last updated at: 2026-07-28_
+_Last updated at: 2026-10-13_
 
-## **Send Message**
+# **Send Message**
 
 Through this API, you can send a message to the specified `conversation_id` and receive the Agent's generated response. The API supports submitting text, image, audio, and document as message content.
 
@@ -98,6 +98,24 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 **Notes:**
 - `image`, `audio`, and `document` all support both base64 encoding and URL links; choose one method.
 - The `content` of an `assistant` message must be of type String.
+- In Custom Helpdesk mode, human agent messages and user messages received during human takeover are submitted with `ai_response=false` or `role=human_agent`; they are archived only and do NOT trigger the AI. Example:
+
+```
+{
+    "conversation_id": "686e2646cb8ee942d9a62d79",
+    "response_mode": "blocking",
+    "ai_response": false,
+    "human_agent_info": {
+        "name": "Alice",
+        "email": "alice@example.com",
+        "image_url": "https://altatech.ai/avatar.png"
+    },
+    "messages": [
+        { "role": "human_agent", "content": "Hello, this is a human agent — how can I help you?" }
+    ]
+}
+```
+
 - Developers can submit only the latest user message. altabots will automatically assemble short-term and long-term memory. If you need to customize short-term memory, refer to the following example:
 
 ```
@@ -117,6 +135,19 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 ]
 ```
 
+- When using LoopAgent in streaming mode, if you need the process messages emitted while the agent is running, declare the `is_process_result` field in the request parameters:
+
+```
+{
+    "conversation_id": "686e2646cb8ee942d9a62d79",
+    "response_mode": "streaming",
+    "is_process_result": true,
+    "messages": [
+        { "role": "user", "content": "Hello" }
+    ]
+}
+```
+
 ## **Request Headers**
 
 | Field         | Type              | Description                                                                                 |
@@ -130,7 +161,13 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
 |----------------------|-------------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | conversation_id      | string      | Yes      | Unique identifier for the conversation. Must provide the `conversation_id` to continue the conversation.                                                                                                                                                                                                                                                     |
 | response_mode        | string      | Yes      | The response and delivery mode for the AI Agent's reply. <br> `blocking`: Waits for completion before returning results (may be interrupted if the process is long). <br> `streaming`: Returns results in a streaming fashion using SSE (Server-Sent Events). <br> `webhook`: Both Agent and human agent messages are sent to the configured webhook address. |
-| messages             | JSON Array  | Yes      | Conversation message content. Supports two roles: `user` and `assistant` to construct the conversation context. <br> At least one `user` message is required, and the latest `user` message should be last. <br> Developers can construct `assistant` messages as context.                                            |
+| messages             | JSON Array  | Yes      | Conversation message content. Supports three roles: `user`, `assistant`, and `human_agent` to construct the conversation context. <br> `user` message: At least one is required, and the latest `user` message should be last. <br> `assistant` message: Developers can construct `assistant` messages as context. <br> `human_agent` message: Human agent message (Custom Helpdesk mode); messages with this role **never trigger an AI response**, are only archived as later context, and are unaffected by `ai_response`. |
+| is_process_result    | boolean     | No       | Whether LoopAgent outputs process information. Defaults to `false`. <br> `false`: Only the final answer is streamed, with no process messages. <br> `true`: The narration messages between rounds and the reasoning process are delivered token by token, and the final answer also stays token-by-token incremental. |
+| ai_response          | boolean     | No       | Whether the AI responds to this message. Defaults to `true` — omitting the field behaves exactly like existing calls. <br> `false`: The message is **archived only; the AI does not respond**, consuming no tokens or credits, and the response is a lightweight receipt. <br> `true`: The AI responds normally; in Custom Helpdesk mode, explicitly passing `true` also **hands the conversation back to the AI from human takeover**. <br> Omitted: If the conversation is currently under Custom Helpdesk human takeover, equivalent to `false`; otherwise equivalent to `true`. |
+| human_agent_info     | object      | No       | Human agent identity info; only meaningful when `messages` contains `role=human_agent` (top-level field, one agent per request). |
+| human_agent_info.name      | string | No | Human agent name. |
+| human_agent_info.email     | string | No | Human agent email. |
+| human_agent_info.image_url | string | No | Human agent avatar URL. |
 | conversation_config  | object      | No       | Allows developers to temporarily adjust the Agent's function scope for this conversation only, to meet special requirements. See the full breakdown below.                                                                                                                                                                                                   |
 
 **`conversation_config` fields:**
@@ -204,6 +241,7 @@ curl -X POST 'https://altatech.ai/v2/conversation/message' \
             "audio_output_credits": 0.0
         }
     },
+    "human_trigger": false,
     "citations": [
         {
             "index": "1",
@@ -242,11 +280,62 @@ When `corner_citation: true` is set in the request, the Agent's reply text will 
 Text content: `"Here is a detailed explanation$[1]$: The order amount is $325.00$[1]$."`  
 The element in the `citations` array with `index` "1" is the citation source for this mark.
 
+### **Response Example (Human Handoff Triggered)**
+
+In Custom Helpdesk mode, when this reply triggers a handoff to a human, `human_trigger` is `true`; if a handoff note also exists, a `handoff` object is additionally returned (this field is absent when there is no note).
+
+```
+{
+    "create_time": 1679587005,
+    "conversation_id": "657303a8a764d47094874bbe",
+    "user_id": "65a4ccfc7ce58e728d5897e0",
+    "anonymous_id": "device_abcdef123456",
+    "message_id": "65a4ccfC7ce58e728d5897e0",
+    "output": [
+        {
+            "from_component_branch": null,
+            "from_component_name": "AI Model-1",
+            "content": {
+                "text": "Transferring you to a human agent, please wait a moment.",
+                "audio": null
+            }
+        }
+    ],
+    "usage": {
+        "tokens": {
+            "total_tokens": 29,
+            "prompt_tokens": 19,
+            "prompt_tokens_details": {
+                "audio_tokens": 0,
+                "text_tokens": 19
+            },
+            "completion_tokens": 10,
+            "completion_tokens_details": {
+                "reasoning_tokens": 0,
+                "audio_tokens": 0,
+                "text_tokens": 10
+            }
+        },
+        "credits": {
+            "total_credits": 0.0,
+            "text_input_credits": 0.0,
+            "text_output_credits": 0.0,
+            "audio_input_credits": 0.0,
+            "audio_output_credits": 0.0
+        }
+    },
+    "human_trigger": true,
+    "handoff": {
+        "note": "Handoff reason: The user expressed dissatisfaction with the refund process twice in a row and requested human handling.\nConversation summary: The user placed an order on March 2, did not receive a refund notification after requesting a refund, and has confirmed order number 20260302-8891."
+    }
+}
+```
+
 ---
 
 ### **Success Response (Blocking)**
 
-⚠️ Human agent takeover is not available in blocking mode.
+⚠️ In blocking mode, human takeover is unavailable when integrating third-party human agent systems such as LiveChat or Intercom (human agent messages are delivered asynchronously and require webhook mode). This restriction does NOT apply when using Custom Helpdesk: the handoff signal is returned via `human_trigger` / `handoff` in the response body, and human agent messages are written by the developer through this same API using `role=human_agent`.
 
 | Field           | Type        | Description                                                                 |
 |-----------------|------------|-----------------------------------------------------------------------------|
@@ -256,19 +345,29 @@ The element in the `citations` array with `index` "1" is the citation source for
 | message_id      | string     | Unique identifier for a message in the conversation.                        |
 | create_time     | long       | Timestamp when the reply message was generated.                             |
 | output          | JSON Array | Agent reply content.                                                        |
+| output.from_component_branch | string | FlowAgent branch. |
+| output.from_component_name | string | Upstream component name in FlowAgent. |
+| output.content  | object     | Message content replied by the Agent; currently includes two types of messages: `text` and `audio`. |
+| human_trigger   | boolean    | Whether this reply triggered a human handoff. `false` when not triggered.   |
+| handoff         | object     | Human handoff info; present only when `human_trigger` is `true` and a handoff note exists. |
+| handoff.note    | string     | Handoff note (handoff reason + conversation summary), up to 2000 characters. |
+| ai_response     | boolean    | Echoed back in the receipt of archive-only requests (`ai_response=false` or containing `role=human_agent`) to confirm the message was recognized as archive-only. |
+| sender_role     | string     | Echoed back in the receipt of archive-only requests; value is `human_agent` or `user`, to confirm the role of the archived message. |
 | usage           | object     | Usage and consumption.                                                      |
-| citations       | JSON Array | No                                                                          |
+| usage.tokens    | object     | Total tokens consumed by the Agent in this conversation. Includes `total_tokens`, `prompt_tokens`, `completion_tokens`, `prompt_tokens_details`, and `completion_tokens_details`. |
+| usage.credits   | object     | Total credits consumed by the Agent in this conversation. Includes `total_credits`, `text_input_credits`, `text_output_credits`, `audio_input_credits`, and `audio_output_credits`. |
+| citations       | JSON Array | Citation sources; returned when `corner_citation` is `true`. See Citation Mark Format Description above. |
 
 ---
 
 ### **Success Response (Streaming)**
 
-⚠️ Human agent takeover is not available in streaming mode.
+⚠️ In streaming mode, human takeover is unavailable when integrating third-party human agent systems such as LiveChat or Intercom (human agent messages are delivered asynchronously and require webhook mode). This restriction does NOT apply when using Custom Helpdesk: the handoff trigger is delivered as a `code: 36` HumanTrigger frame, and the handoff note follows immediately as a `code: 107` HumanHandoffNote frame.
 
 | Field   | Type | Description                                                                                                                                                                                                                                                  |
 |---------|------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| code    | int  | Message type code: 3-Text, 10-Flowagent Output, 0-End, 4-Usage Data, 39-Audio Message, 5-Tool Call Request, 6-Tool Call Response, 41-Thought, 83-Correlate Attachment Info, 20-Citation Info.                         |
-| message | string | Message type: Text, FlowOutput, End, CorrelateAttachment, Citation.                                                                                                                                                                                        |
+| code    | int  | Message type code: 3-Text, 10-Flowagent Output, 0-End, 4-Usage Data, 39-Audio Message, 5-Tool Call Request, 6-Tool Call Response, 41-Thought, 83-Correlate Attachment Info, 20-Citation Info, 36-Human Handoff Trigger, 107-Human Handoff Note.                         |
+| message | string | Message type: Text, FlowOutput, End, CorrelateAttachment, Citation, HumanTrigger, HumanHandoffNote.                                                                                                                                                                                        |
 | data    | object | Reply content.                                                                                                                                                                                                                                              |
 
 **Text message streaming data is returned in multiple parts:**
@@ -323,6 +422,21 @@ The element in the `citations` array with `index` "1" is the citation source for
 - `type` in citation info may be: `attachment`, `doc`, or `tool`.
 - When `type` is `attachment`, the `attachment` field contains attachment details; when `doc`, the `doc` field contains document details; when `tool`, the `tool` field contains tool details.
 
+**In Custom Helpdesk mode, when a human handoff is triggered, the handoff trigger frame and the handoff note frame are delivered in order, before the `End` frame:**
+
+```
+{"code":3,"message":"Text","data":"Transferring you to a human agent, please wait a moment."}
+{"code":36,"message":"HumanTrigger","data":"HumanTrigger"}
+{"code":107,"message":"HumanHandoffNote","data":{"note":"Handoff reason: The user expressed dissatisfaction with the refund process twice in a row and requested human handling.\nConversation summary: The user placed an order on March 2, did not receive a refund notification after requesting a refund, and has confirmed order number 20260302-8891."}}
+{"code":0,"message":"End","data":null}
+```
+
+**Explanation:**
+- `code: 36`, `message: "HumanTrigger"`: This reply triggered a human handoff; `data` is a fixed identifier string.
+- `code: 107`, `message: "HumanHandoffNote"`: The handoff note; its `data` structure matches the `handoff` field in the blocking response (`{"note": "..."}`).
+- The `HumanHandoffNote` frame is delivered only when a handoff note exists; with no note there is only the `HumanTrigger` frame — there is no empty `107` frame.
+- Both frames are always delivered before the `End` (`code: 0`) frame.
+
 ---
 
 ### **Success Response (Webhook)**
@@ -332,7 +446,7 @@ The element in the `citations` array with `index` "1" is the citation source for
 When the Agent is configured with human agent service, use webhook response mode to receive human agent reply messages. After configuring the webhook address in "Integration-API", the altabots system will send both "Agent" and "Human Agent" response messages to the webhook address.
 
 **Webhook configuration:**  
-See Webhook Mode and Human Agent Service.
+See [Webhook Receives Messages](webhook-receives-messages-v2.md) and [Human Handoff Service](human-handoff-service.md).
 
 ⚠️ In API mode, if human agent takeover is enabled for the Agent, `webhook` response mode must be used to receive human agent reply messages.
 

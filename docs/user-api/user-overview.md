@@ -1,4 +1,4 @@
-_Last updated at: 2026-07-06_
+_Last updated at: 2026-10-13_
 
 # **User Overview**
 
@@ -121,5 +121,7 @@ conversation_type identifies the channel through which a user initiates a conver
 | Facebook                | FACEBOOK           | -                                       |
 | Intercom                | INTERCOM           | -                                       |
 | Livedesk                | LIVEDESK           | -                                       |
+| Workspace               | SPACE              | Workspace conversations                |
+| OmniChat                | OMNICHAT           | -                                       |
 
-⚠️ Note: These values can be used as filters when fetching conversation lists via API. Platforms like LINE and Telegram support multiple sub-channels; therefore, "Agent Logs" supports two-level filtering.
+⚠️ Note: These values can be used as filters when fetching conversation lists via [Get Conversation List](../conversation-api/get-conversation-list.md). Platforms like LINE and Telegram support multiple sub-channels; therefore, "Agent Logs" supports two-level filtering.

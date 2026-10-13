@@ -27,3 +27,12 @@
 ## V1.7 · 2026-07-22
 - Added Get Metadata Field List API (Knowledge API).
 - Added Get Doc Metadata, Create Metadata Field, Edit Metadata Field, Delete Metadata Field, and Update Doc Metadata Value APIs (Knowledge API / Metadata API).
+
+## V1.8 · 2026-10-13
+- Added Agent version management APIs (Import, Publish, Query Version List, Rollback) and Agent Skill APIs (Create, Update) (Agent API).
+- Added Workflow version management APIs (Import, Publish, Query Version List, Rollback) and Get Workflow Run List (Workflow API).
+- Added Sync Knowledge Base API (Knowledge API).
+- Added Account API pages: Import Agent / Workflow and precheck, Query Organization List, Create API Key, Organization Skill management, Tool & MCP management, and Query Model List.
+- Send Message: added human handoff support (`human_agent` role, `human_agent_info`, `human_trigger` / `handoff` response fields, streaming codes 36 and 107), plus `is_process_result` and `ai_response` parameters.
+- Get Conversation List: added `source_page` and `quality_score` response fields; `total` now returns the total number of matching conversations.
+- Add Q&A / Text / Spreadsheet Docs: added optional `embedding_model_version_id` parameter.

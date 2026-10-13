@@ -25,6 +25,12 @@ nav:
     - Webhook Detection Service: conversation-api/webhook-check-v1.md
     - Agent Test: conversation-api/agent-test-update-release.md
     - Query LogTree: conversation-api/query-logtree.md
+    - Import Agent Version: conversation-api/import-agent-version.md
+    - Create Agent Skill: conversation-api/create-agent-skill.md
+    - Publish Agent Version: conversation-api/release-agent-version.md
+    - Query Agent Version List: conversation-api/list-agent-versions.md
+    - Update Agent Skill: conversation-api/update-agent-skill.md
+    - Rollback Agent Version: conversation-api/rollback-agent-version.md
   - Knowledge API:
     - Create Knowledge Base: knowledge-base-api/create-knowledge-base.md
     - Get Knowledge Base List: knowledge-base-api/get-knowledge-base-list.md
@@ -48,10 +54,16 @@ nav:
     - Query Doc Status: knowledge-base-api/query-doc-status.md
     - Re embed Failed Docs: knowledge-base-api/re-embed-failed-docs.md
     - Vector Similarity Matching: knowledge-base-api/vector-similarity-matching.md
+    - Sync Knowledge Base: knowledge-base-api/sync-knowledge-base.md
   - Workflow API:
     - Run Workflow: workflow-api/workflow-call-api.md
     - Query Workflow Result: workflow-api/workflow-query-api-result.md
     - Workflow Test: workflow-api/workflow-test-update-release.md
+    - Get Workflow Run List: workflow-api/workflow-run-logs.md
+    - Import Workflow Version: workflow-api/import-workflow-version.md
+    - Publish Workflow Version: workflow-api/release-workflow-version.md
+    - Query Workflow Version List: workflow-api/list-workflow-versions.md
+    - Rollback Workflow Version: workflow-api/rollback-workflow-version.md
   - Database API:
     - Create Database Table: database-api/create-database-table.md
     - Add Table Data: database-api/add-table-data.md
@@ -75,7 +87,32 @@ nav:
     - Get Agent Conversation Credit Consumption List: analytics-api/agent-conversation-credits.md
     - Get Workflow Run Credit Consumption List: analytics-api/workflow-run-credits.md
   - Account API:
-    - Get Agent Information: account-api/get-bot-information.md
+    - Agents:
+      - Get Agent Information: account-api/get-bot-information.md
+      - Import Agent: account-api/agents/import-agent.md
+      - Precheck Agent Import File: account-api/agents/precheck-agent-import.md
+    - Query Organization List: account-api/list-organizations.md
+    - Create API Key: account-api/create-api-key.md
+    - Workflows:
+      - Import Workflow: account-api/workflows/import-workflow.md
+      - Precheck Workflow Import File: account-api/workflows/precheck-workflow-import.md
+    - Skills:
+      - Create Organization Skill: account-api/skills/create-skill.md
+      - Import Organization Skill via File: account-api/skills/import-skill-package.md
+      - Import Organization Skill via URL: account-api/skills/import-skill-package-url.md
+      - Update Organization Skill: account-api/skills/update-skill-package.md
+      - Delete Skill: account-api/skills/delete-skill.md
+      - Skill List: account-api/skills/list-skills.md
+    - Tools:
+      - Create MCP: account-api/tools/create-mcp.md
+      - Update MCP: account-api/tools/refresh-mcp-tools.md
+      - Delete MCP: account-api/tools/delete-mcp.md
+      - Create Tool: account-api/tools/create-tool.md
+      - Update Tool: account-api/tools/update-tool.md
+      - Delete Tool: account-api/tools/delete-tool.md
+      - Query Tool and MCP List: account-api/tools/list-tools-mcps.md
+    - Models:
+      - Query Model List: account-api/models/list-models.md
   - History API:
     - Get Correlated Document: history-api/get-correlated-doc.md
     - Get Q A List: history-api/get-qa-list.md

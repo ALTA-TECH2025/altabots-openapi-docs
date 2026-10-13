@@ -1,10 +1,11 @@
-_Last updated at: 2025-10-20_
+_Last updated at: 2026-10-13_
 
-# **Add Text Docs (file)**
+# **Add Text-type Documents**
 
-Batch upload text files, and sequentially perform chunking/slicing, embedding/vectorization, and storage.  
-Note: The embedding model used is the default model and cannot be defined within the API.  
-Note: Only return the upload results, do not return the final embedding results. You can obtain the final results through the "Query Document Status" API.
+Batch upload **text-type** documents, which will be processed sequentially through chunking/slicing, embedding/vectorization, and storage to obtain new document IDs.
+
+Note: You can specify the embedding model with `embedding_model_version_id`; if omitted, the system default embedding model is used.  
+Note: Only upload results are returned, not the final embedding results. You can obtain the final results through the "Query Document Status" API.
 
 ## **Request Method**
 
@@ -23,11 +24,12 @@ See Overview for authentication details.
 ### **Request Example**
 
 ```bash
-curl --location 'https://altatech.ai/v1/bot/doc/text/add' \
---header 'Authorization: Bearer YOUR_API_KEY' \
---header 'Content-Type: application/json' \
---data '{
+curl -X POST 'https://altatech.ai/v1/bot/doc/text/add' \
+-H 'Authorization: Bearer ${API Key}' \
+-H 'Content-Type: application/json' \
+-d '{
     "knowledge_base_id": "67457fea6f658672d6482542",
+    "embedding_model_version_id": "6620f06262390a0be1411c5d",
     "chunk_token": 700,
     "splitter": "\n",
     "files": [
@@ -45,21 +47,22 @@ curl --location 'https://altatech.ai/v1/bot/doc/text/add' \
 
 | Field | Type | Description |
 | :---- | :---- | :---- |
-| Authorization | Bearer {token} | Use `Authorization: Bearer {token}` for authentication. Get the key from the API Keys page as token. |
+| Authorization | Bearer ${API Key} | Use `Authorization: Bearer ${API Key}` for authentication. Get the key from the API Keys page. |
 | Content-Type | application/json | Data type, set to `application/json`. |
 
 ### **Request Body**
 
 | Field | Type | Required | Description |
-| ----- | ----- | ----- | ----- |
-| knowledge_base_id | String | No | The target knowledge base to which the document is added. If not filled, it defaults to the "Default" knowledge base. |
-| files | Array<Object> | Yes | List of documents to be added. Supports adding up to 20 documents simultaneously. |
-| file_url | String | No | The URL of the document to be added. Supported formats: pdf/txt/md/doc/docx. Maximum size for PDF is 30MB, and for other formats, it is 10MB. Note: Either URL or base64 must be provided. If both are provided, base64 takes precedence. |
-| file_base64 | String | No | The base64 of the document to be added. Supported formats: pdf/txt/md/doc/docx. Maximum size for PDF is 30MB, and for other formats, it is 10MB. Note: Either URL or base64 must be provided. If both are provided, base64 takes precedence. |
-| file_name | String | Yes | The name of the document to be added. 1-200 characters. |
-| source_url | String | No | The source URL of the document to be added. Must comply with URL format specifications. |
-| chunk_token | Integer | No | The maximum number of tokens for a single knowledge chunk during chunking. Default value is 600. Range is 1-1000. Note: Either maximum token count or delimiter must be provided. If both are provided, delimiter takes precedence. |
-| splitter | String | No | The delimiter used during chunking. Default is empty. You can use "\n" as a line break delimiter. Note: Either maximum token count or delimiter must be provided. If both are provided, delimiter takes precedence. |
+| :---- | :---- | :---- | :---- |
+| knowledge\_base\_id | String | No | The target knowledge base to which the document is added. If not filled, it defaults to the "Default" knowledge base. |
+| files | Array&lt;Object&gt; | Yes | List of documents to be added. Supports adding up to 20 documents simultaneously. |
+| files[].file\_url | String | No | The URL of the document to be added. Supported formats: pdf/txt/md/doc/docx. Maximum size for PDF is 30MB, and for other formats, it is 10MB. Note: Either URL or base64 must be provided. If both are provided, base64 takes precedence. |
+| files[].file\_base64 | String | No | The base64 of the document to be added. Supported formats: pdf/txt/md/doc/docx. Maximum size for PDF is 30MB, and for other formats, it is 10MB. Note: Either URL or base64 must be provided. If both are provided, base64 takes precedence. |
+| files[].file\_name | String | Yes | The name of the document to be added. 1-200 characters. |
+| files[].source\_url | String | No | The source URL of the document to be added. Must comply with URL format specifications. |
+| embedding\_model\_version\_id | String | No | ID of the embedding model version used to vectorize this batch of documents. If omitted, the system default embedding model is used. Obtain a valid value from the `modelId` field returned by Get Model List under the `EMBEDDING` group. |
+| chunk\_token | Integer | No | Maximum number of tokens per knowledge chunk during segmentation. Default value is 600. Valid range is 1-1000. Note: Either `chunk_token` or `splitter` must be specified. When both are specified, the splitter takes precedence. If neither is provided, the request still succeeds, but the document fails during vectorization (status `FAIL_STORE`), so always provide at least one. |
+| splitter | String | No | Delimiter used for text chunking. Default is empty. Can use a custom string (e.g. `"\n"`) as delimiter. Note: Either `chunk_token` or `splitter` must be specified. When both are specified, the splitter takes precedence. If neither is provided, the request still succeeds, but the document fails during vectorization (status `FAIL_STORE`), so always provide at least one. |
 
 ## **Response**
 
@@ -87,11 +90,11 @@ curl --location 'https://altatech.ai/v1/bot/doc/text/add' \
 ### **Success Response**
 
 | Field | Type | Description |
-| :---: | :---: | :---: |
-| doc | Array<Object> | List of added documents. |
-| doc_id | String | ID of the added document. |
-| doc_name | String | Name of the added document. |
-| failed | Array<Object> | List of failed added document names. |
+| :---- | :---- | :---- |
+| doc | Array&lt;Object&gt; | List of added documents. |
+| doc[].doc\_id | String | ID of the added document. |
+| doc[].doc\_name | String | Name of the added document. |
+| failed | Array&lt;Object&gt; | List of failed added document names. |
 
 ### **Failure Response**
 
@@ -99,3 +102,16 @@ curl --location 'https://altatech.ai/v1/bot/doc/text/add' \
 | :---- | :---- | :---- |
 | code | Int | Error code. |
 | message | String | Error details. |
+
+### **Error Codes**
+
+| Code | Message |
+| :---- | :---- |
+| 40000 | Parameter error |
+| 40000 | The embedding\_model\_version\_id does not exist: the given model version ID is not found in the platform model catalog |
+| 40000 | The embedding\_model\_version\_id is not an embedding model: the given ID refers to a non-embedding model (for example, a chat model `modelId`) |
+| 40000 | The embedding\_model\_version\_id is not an available embedding model: the provider of this embedding model does not yet support being specified via the API |
+| 40127 | Developer authentication failed |
+| 20059 | Agent deleted |
+
+> Note: If `embedding_model_version_id` fails validation, no documents in the batch are created and none appear in the `failed` list; the error response above is returned directly.

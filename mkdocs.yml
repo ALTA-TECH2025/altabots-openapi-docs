@@ -12,25 +12,33 @@ nav:
 - API Overview: altabots-openapi.md
 - API Reference:
   - Agent API:
-    - Create Conversation ID: conversation-api/create-conversation.md
-    - Send Message: conversation-api/send-message-v2.md
-    - Webhook receives messages: conversation-api/webhook-receives-messages-v2.md
-    - Get Conversation List: conversation-api/get-conversation-list.md
-    - Human handoff service: conversation-api/human-handoff-service.md
-    - Get Conversation Detail: conversation-api/get-conversation-detail.md
-    - Get Referenced Knowledge: conversation-api/get-correlated-dataset.md
-    - Generate Suggested Questions: conversation-api/suggested-questions.md
-    - Agent Response Feedback: conversation-api/bot-response-feedback.md
-    - Agent Quality: conversation-api/quality.md
-    - Webhook Detection Service: conversation-api/webhook-check-v1.md
-    - Agent Test: conversation-api/agent-test-update-release.md
-    - Query LogTree: conversation-api/query-logtree.md
-    - Import Agent Version: conversation-api/import-agent-version.md
-    - Create Agent Skill: conversation-api/create-agent-skill.md
-    - Publish Agent Version: conversation-api/release-agent-version.md
-    - Query Agent Version List: conversation-api/list-agent-versions.md
-    - Update Agent Skill: conversation-api/update-agent-skill.md
-    - Rollback Agent Version: conversation-api/rollback-agent-version.md
+    - Conversations:
+      - Create Conversation ID: conversation-api/create-conversation.md
+      - Send Message: conversation-api/send-message-v2.md
+      - Get Conversation List: conversation-api/get-conversation-list.md
+      - Get Conversation Detail: conversation-api/get-conversation-detail.md
+      - Get Referenced Knowledge: conversation-api/get-correlated-dataset.md
+      - Generate Suggested Questions: conversation-api/suggested-questions.md
+      - Get Conversation Property: conversation-api/get-conversation-property.md
+      - Update Conversation Property: conversation-api/update-conversation-property.md
+      - Query LogTree: conversation-api/query-logtree.md
+      - Create a Share Link: conversation-api/create-share-link.md
+    - Versions:
+      - Import Agent Version: conversation-api/import-agent-version.md
+      - Publish Agent Version: conversation-api/release-agent-version.md
+      - Query Agent Version List: conversation-api/list-agent-versions.md
+      - Rollback Agent Version: conversation-api/rollback-agent-version.md
+    - Skills:
+      - Create Agent Skill: conversation-api/create-agent-skill.md
+      - Update Agent Skill: conversation-api/update-agent-skill.md
+    - Webhooks:
+      - Webhook receives messages: conversation-api/webhook-receives-messages-v2.md
+      - Human handoff service: conversation-api/human-handoff-service.md
+      - Webhook Detection Service: conversation-api/webhook-check-v1.md
+    - Quality:
+      - Agent Response Feedback: conversation-api/bot-response-feedback.md
+      - Agent Quality: conversation-api/quality.md
+      - Agent Test: conversation-api/agent-test-update-release.md
   - Knowledge API:
     - Create Knowledge Base: knowledge-base-api/create-knowledge-base.md
     - Get Knowledge Base List: knowledge-base-api/get-knowledge-base-list.md
@@ -86,6 +94,12 @@ nav:
     - Get Detailed Credit Consumption: analytics-api/get-credit-consumption-detail.md
     - Get Agent Conversation Credit Consumption List: analytics-api/agent-conversation-credits.md
     - Get Workflow Run Credit Consumption List: analytics-api/workflow-run-credits.md
+    - Get Agent Peak RPM: analytics-api/agent-peak-rpm.md
+    - Get Agent Human Handoff Rate: analytics-api/agent-human-handoff.md
+    - "Get the Agent's recent activity": analytics-api/agent-recent-activity.md
+    - Retrieve Organization Peak RPM: analytics-api/org-peak-rpm.md
+    - Get Organization Usage Summary: analytics-api/org-usage-summary.md
+    - Get Organization Credit Usage Distribution: analytics-api/org-usage-distribution.md
   - Account API:
     - Agents:
       - Get Agent Information: account-api/get-bot-information.md

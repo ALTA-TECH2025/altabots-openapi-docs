@@ -1,4 +1,4 @@
-_Last updated at: 2025-10-20_
+_Last updated at: 2026-10-20_
 
 ## **Get Agent Conversation Credit Consumption List**
 
@@ -15,6 +15,10 @@ GET
 ## **Authentication**
 
 See the authentication method in the API Overview.
+
+## **Request Frequency**
+
+This API counts toward the per-minute quota of the organization plan's "Statistics API", shared with the other statistics APIs (including organization-level statistics APIs). If the quota is exceeded, `40008` is returned.
 
 ## **Request Example**
 
@@ -73,6 +77,19 @@ curl -X GET 'https://altatech.ai/v1/account/agent/conversation/credits?start_tim
 | Field      | Type | Description                                      |
 |------------|------|--------------------------------------------------|
 | list       | list | Credit consumption detail list.                  |
+| conversation_id | string | Conversation ID. |
+| conversation_create_time | long | Conversation creation time (milliseconds timestamp); `null` if the conversation record has been deleted. |
+| chat | decimal | Credits consumed by conversation (LLM chat). |
+| anonymization | decimal | Credits consumed by anonymization. |
+| asr | decimal | Credits consumed by speech recognition (ASR). |
+| tts | decimal | Credits consumed by text-to-speech (TTS). |
+| rerank | decimal | Credits consumed by vector re-ranking. |
+| database_processing | decimal | Credits consumed by database processing. |
+| tool_call | decimal | Credits consumed by tool calls. |
+| knowledge_doc_indexing | decimal | Credits consumed by knowledge base indexing. |
+| question_tag | decimal | Credits consumed by question tagging. |
+| moderation | decimal | Credits consumed by content moderation. |
+| total | decimal | Total credits consumed by this conversation. |
 | total      | long | Total number of matching conversations (for pagination). |
 | page       | int  | Current page number.                             |
 | page_size  | int  | Number of items per page.                        |

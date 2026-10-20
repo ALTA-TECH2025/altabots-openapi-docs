@@ -1,4 +1,4 @@
-_Last updated at: 2026-07-06_
+_Last updated at: 2026-10-20_
 
 # **Human Handoff Service**
 
@@ -138,6 +138,10 @@ Sends the end user's messages to human handoff service, using the `conversation_
 | create\_time | long | Creation time of the user's message (milliseconds) |
 | agent\_id | string | Agent (Bot) ID |
 | files | array | Attachments uploaded with the message; omit or leave empty if there are none |
+| files.content\_type | string | Content type enum: `Image` / `Audio` / `Video` / `Document` / `File` / `Text`, etc. |
+| files.url | string | Downloadable URL of the attachment (accessible on the AltaBots side; developers must download/transfer it themselves) |
+| files.name | string | File name (including extension), consistent with the Get Conversation Detail API |
+| files.format | string | File format/extension, consistent with the Get Conversation Detail API |
 
 ### **Response**
 
@@ -158,6 +162,13 @@ When a user conversation times out or the Agent user actively closes the convers
 
 `https://your_domain/conversation/close`
 
+### **Request Headers**
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| Authorization | Bearer ${token} | Use Authorization: Bearer ${token} for authentication. Obtain the token from the API Key page. |
+| Content-Type | application/json | Data type, set to application/json. |
+
 ### **Request Parameters**
 
 | Parameter | Type | Description |
@@ -173,11 +184,9 @@ When a user conversation times out or the Agent user actively closes the convers
 | code | int | Response code |
 | message | string | Details |
 
-When developers choose webhook as the method for accessing human handoff service, AltaBots provides an API interface for receiving human handoff service reply messages and conversation control commands sent by developers.
+## **Reply to User Messages**
 
-## **Receive Customer Service Messages**
-
-When developers choose webhook as the human handoff service access method, AltaBots provides an interface for receiving human agent reply messages from the developer's Webhook service and sends the message content to the user.
+When developers choose webhook as the human handoff service integration method, AltaBots provides an interface for replying to user messages. This interface allows human agents to send message content back to users.
 
 ### **Request Method**
 
@@ -186,6 +195,13 @@ When developers choose webhook as the human handoff service access method, AltaB
 ### **Request URL**
 
 `https://altatech.ai/v1/human/message/receive`
+
+### **Request Headers**
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| Authorization | Bearer ${token} | Use Authorization: Bearer ${token} for authentication. Obtain the token from the API Key page. |
+| Content-Type | application/json | Data type, set to application/json. |
 
 ### **Request Example**
 
@@ -207,8 +223,12 @@ When developers choose webhook as the human handoff service access method, AltaB
 | ----- | ----- | ----- | ----- |
 | conversation\_id | string | Conversation ID, propagated in the conversation creation interface and chat interface | true |
 | timestamp | long | Timestamp | true |
-| body | string | Human handoff service reply content | false |
+| body | string | Human handoff service reply content | true |
 | files | array | Attachments carried with the reply; omit or leave empty if there are none | false |
+| files.content\_type | string | Content type enum: `Image` / `Audio` / `Video` / `Document` / `File` / `Text`, etc. | |
+| files.url | string | Downloadable URL of the attachment | |
+| files.name | string | File name (including extension), consistent with the Get Conversation Detail API | |
+| files.format | string | File format/extension, consistent with the Get Conversation Detail API | |
 
 ### **Response**
 
@@ -229,6 +249,13 @@ When developers choose webhook as the human handoff service access method, the h
 
 `https://altatech.ai/v1/human/close`
 
+### **Request Headers**
+
+| Field | Type | Description |
+| :---- | :---- | :---- |
+| Authorization | Bearer ${API Key} | Use Authorization: Bearer ${API Key} for authentication. Get API key from API Key page. |
+| Content-Type | application/json | Data type, set to application/json. |
+
 ### **Request Parameters**
 
 | Parameter | Type | Description |
@@ -242,3 +269,42 @@ When developers choose webhook as the human handoff service access method, the h
 | ----- | ----- | ----- | ----- |
 | conversation\_id | string | Conversation ID, passed in the conversation creation interface and chat interface, just pass it through | true |
 | timestamp | long | Timestamp | true |
+
+## **AltaBots Human Service Status Detection**
+
+AltaBots provides a health monitoring endpoint for detecting its own human service. Developers can call this endpoint to probe whether the AltaBots human service is available and working properly. If the endpoint returns HTTP status code 200 and the response body is an English identifier indicating the service is normal (such as `service is normal`), it means the AltaBots human service is available and working properly.
+
+This endpoint requires no authentication and returns plain text.
+
+### **Request Method**
+
+`GET`
+
+### **Request URL**
+
+`https://altatech.ai/v1/human/health`
+
+### **Request Example**
+
+```
+curl -X GET 'https://altatech.ai/v1/human/health'
+```
+
+### **Response**
+
+When the AltaBots service is available and working properly, it returns HTTP status code 200, and the response body returns an English identifier indicating the service is normal.
+
+```
+service is normal
+```
+
+### **Availability Determination Recommendations**
+
+The caller only needs to use the HTTP status code as the criterion:
+
+| Situation | Determination |
+| :---- | :---- |
+| Returns 200 and the response body is `service is normal` | AltaBots service is available |
+| Returns non-200 (such as 5xx) / request timeout / connection failure | AltaBots service is unavailable |
+
+It is recommended to set a reasonable request timeout (such as 3 to 5 seconds) and poll at a fixed frequency (QPM: 3). This endpoint requires no authentication, so there is no need to carry an API Key when calling it.

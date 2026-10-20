@@ -1,4 +1,4 @@
-_Last updated at: 2026-10-13_
+_Last updated at: 2026-10-20_
 
 # **Get Conversation List**
 
@@ -62,7 +62,13 @@ Note: For the possible values of `conversation_type`, refer to the Conversation 
       "message_count": 2,
       "cost_credit": 0.01,
       "bot_id": "64b902a84f1ff25d1c60c10b",
-      "quality_score": null
+      "quality_score": null,
+      "question_categories": [
+        {
+          "category_id": "6893485e1aca766e47b0e892",
+          "category_name": "Pricing"
+        }
+      ]
     },
     {
       "conversation_id": "64ec1508c9c1ed5605e6ff28",
@@ -75,7 +81,8 @@ Note: For the possible values of `conversation_type`, refer to the Conversation 
       "message_count": 20,
       "cost_credit": 0.59,
       "bot_id": "64b902a84f1ff25d1c60c10b",
-      "quality_score": null
+      "quality_score": null,
+      "question_categories": []
     }
   ],
   "total": 2
@@ -97,7 +104,10 @@ Note: For the possible values of `conversation_type`, refer to the Conversation 
 |       message\_count | int | Total number of messages in the conversation. |
 |       cost\_credit | float | Number of credits consumed by the conversation. |
 |       bot\_id | string | Agent ID. |
-|       quality\_score | float | Conversation quality score. null if the conversation has not been scored. |
+|       quality\_score | float | AI quality inspection score (conversation level), ranging from 0 to 1. null if the conversation has not been inspected or AI quality inspection is not enabled. |
+|       question\_categories | JSON Array | Question category tags of the conversation: the deduplicated union of the question categories of all its messages, from the same source as the Question Category column on the Logs - Conversation Records page; an empty array if there is no category. |
+|             category\_id | string | Question category ID. |
+|             category\_name | string | Question category name. |
 | total | int | Total number of conversations matching the filter criteria (not the number returned on the current page). |
 
 ### **Error Response**

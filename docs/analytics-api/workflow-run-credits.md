@@ -1,4 +1,4 @@
-_Last updated at: 2025-10-20_
+_Last updated at: 2026-10-20_
 
 ## **Workflow Run Credit Consumption List**
 
@@ -15,6 +15,10 @@ GET
 ## **Authentication**
 
 See the Authentication section in the API Overview for details.
+
+## **Request Frequency**
+
+This API counts toward the per-minute quota of the organization plan's "Statistics API", shared with the other statistics APIs (including organization-level statistics APIs). If the quota is exceeded, `40008` is returned.
 
 ## **Request**
 
@@ -76,6 +80,18 @@ curl -X GET 'https://altatech.ai/v1/account/workflow/run/credits?start_time=1774
 | Field      | Type   | Description                                           |
 |------------|--------|-------------------------------------------------------|
 | list       | list   | List of credit consumption details.                   |
+| run_id | string | Workflow run ID. |
+| run_start_time | long | Workflow run start time (milliseconds timestamp); `null` if the run record has been deleted. |
+| chat | decimal | Credits consumed by conversation (LLM chat). |
+| anonymization | decimal | Credits consumed by anonymization. |
+| asr | decimal | Credits consumed by speech recognition (ASR). |
+| tts | decimal | Credits consumed by text-to-speech (TTS). |
+| rerank | decimal | Credits consumed by vector re-ranking. |
+| database_processing | decimal | Credits consumed by database processing. |
+| tool_call | decimal | Credits consumed by tool calls. |
+| knowledge_doc_indexing | decimal | Credits consumed by knowledge base indexing. |
+| question_tag | decimal | Credits consumed by question tagging. |
+| total | decimal | Total credits consumed by this run. |
 | total      | long   | Total number of runs matching the criteria (for pagination). |
 | page       | int    | Current page number.                                  |
 | page_size  | int    | Number of items per page.                             |

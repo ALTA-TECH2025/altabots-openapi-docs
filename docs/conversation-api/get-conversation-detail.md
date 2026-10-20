@@ -1,4 +1,4 @@
-_Last updated at: 2025-12-15_
+_Last updated at: 2026-10-20_
 
 ## **Get Conversation Message Details**
 
@@ -46,12 +46,21 @@ curl -X GET 'https://altatech.ai/v2/messages?conversation_id=xxxxxx&page=1&page_
 ```
 {
   "total": 2,
+  "quality_score": null,
   "conversation_content": [
     {
       "message_id": "645dd86906931c4a9e0ffb1f",
       "parent_message_id": "545dd86906931c4a9e0ffb1f",
       "create_time": 1683871849906,
       "feedback": "POSITIVE",
+      "source_page": "https://your-site.com/pricing",
+      "sentiment_label": "neutral",
+      "question_categories": [
+        {
+          "category_id": "6893485e1aca766e47b0e892",
+          "category_name": "Pricing"
+        }
+      ],
       "role": "user",
       "content": [
         {
@@ -108,6 +117,9 @@ curl -X GET 'https://altatech.ai/v2/messages?conversation_id=xxxxxx&page=1&page_
       "parent_message_id": "645dd86906931c4a9e0ffb1f",
       "create_time": 1683871849906,
       "feedback": "POSITIVE",
+      "source_page": "https://your-site.com/pricing",
+      "sentiment_label": "positive",
+      "question_categories": [],
       "role": "assistant",
       "content": [
         {
@@ -155,7 +167,18 @@ curl -X GET 'https://altatech.ai/v2/messages?conversation_id=xxxxxx&page=1&page_
         }
       ]
     }
-  ]
+  ],
+  "audio_record_url": "https://altatech.ai/record/full-call.mp3",
+  "user_sender": {
+    "channel_type": "Channel::Whatsapp",
+    "user_id": "+66812345678",
+    "profile": {
+      "name": "John Doe"
+    },
+    "additional_attributes": {},
+    "provider": "whatsapp_cloud",
+    "phone_number": "+66900000000"
+  }
 }
 ```
 
@@ -163,13 +186,19 @@ curl -X GET 'https://altatech.ai/v2/messages?conversation_id=xxxxxx&page=1&page_
 
 | Field | Type | Description |
 |-------|------|-------------|
-| total | string | Total number of messages in the conversation. |
+| total | int | Total number of messages in the conversation. |
+| quality_score | float | AI quality inspection score (conversation level), ranging from 0 to 1. null if the conversation has not been inspected or AI quality inspection is not enabled. |
 | conversation_content | JSON Array | Message details. |
 | message_id | string | Unique identifier for the message. |
 | parent_message_id | string | Unique identifier for the parent message. |
 | create_time | long | Timestamp when the message was created. |
 | feedback | string | User feedback for the message, values: POSITIVE, NEGATIVE. No feedback returns empty. |
-| role | string | Message role: user or assistant. |
+| source_page | string | Source page of this message, i.e. the URL of the web page the user was on when the message was created. Currently, only the Livechat channel supports this field; the value is empty when the conversation source is not Livechat. |
+| sentiment_label | string | Sentiment label of the message, aligned with the sentiment field in conversation logs. Values: very_positive, positive, neutral, negative, very_negative, none; null if sentiment analysis has not been performed. |
+| question_categories | JSON Array | Question category tags of this message, from the same source as the Question Category column on the Logs - Conversation Records page; an empty array if there is no category. |
+| category_id | string | Question category ID. |
+| category_name | string | Question category name. |
+| role | string | Message role. Values: user, assistant. System notice messages related to human customer service (e.g., connected-to-human or session-timeout notices) do not return this field. |
 | content | JSON Array | Message content. |
 | from_component_branch | string | Component branch ID of the message source. Empty for user messages and regular Agents. |
 | branch_content | JSON Array | Branch content of the message. |
@@ -180,6 +209,21 @@ curl -X GET 'https://altatech.ai/v2/messages?conversation_id=xxxxxx&page=1&page_
 | document | JSON Array | Document message content. |
 | video | JSON Array | Video message content. |
 | file | JSON Array | File message content. |
+| audio_record_url | string | URL of the full-call recording file of the voice call. Only available for voice (Audio) Agents; this field is not returned when there is no recording. |
+| user_sender | JSON Object | User channel information. For third-party channel integrations (currently LiveDesk), it is stored when the conversation comes inbound, taken from the sender channel information of the channel webhook (supports channels such as WhatsApp / LINE), and shares the same source as the flow variable `ld_user_sender`. This field is not returned when not collected; see the table below for common fields. |
+
+### Common user_sender Fields
+
+This object is the user channel information passed through from the source channel. Fields vary by channel; the following are common fields, and the actual fields are subject to what the channel returns.
+
+| Field | Type | Description |
+|-------|------|-------------|
+| channel_type | string | Channel type, such as `Channel::Whatsapp`, `Channel::Line`, `Channel::Webwidget`, etc. |
+| user_id | string | User identifier on the channel side: phone number/wa_id for WhatsApp, userId for LINE, and identifier for other channels. |
+| profile | JSON Object | User profile (e.g. name). |
+| additional_attributes | JSON Object | Additional channel attributes. |
+| provider | string | Channel provider. |
+| phone_number | string | Phone number configured on the channel side. |
 
 ### Error Response
 

@@ -1,4 +1,4 @@
-_Last updated at: 2026-07-09_
+_Last updated at: 2026-10-20_
 
 # **Webhook Detection Service**
 
@@ -120,6 +120,7 @@ AltaBots sends a detection request carrying `istest=true` to the Webhook URL in 
 | 40000 | Parameter error |
 | 40127 | Developer authentication failed |
 | 40378 | Agent deleted |
+| 40379 | Credit not enough |
 
 ## **AltaBots Webhook Service Status Detection**
 

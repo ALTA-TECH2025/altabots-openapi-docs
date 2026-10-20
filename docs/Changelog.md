@@ -36,3 +36,13 @@
 - Send Message: added human handoff support (`human_agent` role, `human_agent_info`, `human_trigger` / `handoff` response fields, streaming codes 36 and 107), plus `is_process_result` and `ai_response` parameters.
 - Get Conversation List: added `source_page` and `quality_score` response fields; `total` now returns the total number of matching conversations.
 - Add Q&A / Text / Spreadsheet Docs: added optional `embedding_model_version_id` parameter.
+
+## V1.9 · 2026-10-20
+- Added Get Conversation Property, Update Conversation Property, and Create a Share Link APIs (Agent API).
+- Added Get Agent Peak RPM, Get Agent Human Handoff Rate, Get the Agent's recent activity, Retrieve Organization Peak RPM, Get Organization Usage Summary, and Get Organization Credit Usage Distribution APIs (Analytics API).
+- Get Conversation List: added `question_categories` response field.
+- Get Conversation Detail: added `quality_score`, `audio_record_url`, and `user_sender` fields, plus per-message `source_page`, `sentiment_label`, and `question_categories`; `total` is now an integer.
+- Human handoff service: added Human Service Status Detection endpoint (`GET /v1/human/health`), documented `files` sub-fields, and `body` is now required when replying to user messages.
+- Agent Test: `botType` now returns `QuestionAnswer` / `Flow` / `LoopAgent`; added new error codes.
+- Webhook Detection Service: added error code `40379`.
+- Agent / Workflow credit consumption lists: documented `list` item fields and request-frequency limits.

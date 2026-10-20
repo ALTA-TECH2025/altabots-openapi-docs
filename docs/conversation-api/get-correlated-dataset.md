@@ -1,8 +1,8 @@
-_Last updated at: 2025-10-20_
+_Last updated at: 2026-10-20_
 
-# **Get Correlated Dataset**
+# **Get Referenced Knowledge**
 
-Retrieve the knowledge base data referenced by the Agent's answer.
+Retrieve the knowledge base slice data referenced in the Agent's response, including slice content, document ID, document name, source URL, and relevance score.
 
 ## **Request Method**
 
@@ -31,9 +31,8 @@ curl -X GET
 | Field | Type | Description |
 | :---- | :---- | :---- |
 | Authorization | Bearer {token} | Use Authorization: Bearer {token} for authentication. Get the key from the API Keys page as token. |
-| Content-Type | application/json | Data type, set to application/json. |
 
-### **Request Body**
+### **Request Parameters**
 
 | Field | Type | Required | Description |
 | :---- | :---- | :---- | :---- |
